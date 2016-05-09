@@ -88,6 +88,20 @@ public class MainActivity extends AppCompatActivity {
     public void checkBoxClicked(View v) {
         CheckBox cbx = (CheckBox) v;
 
+        if (cbx.getId() == R.id.cbxBrownie) {
+            CheckBox cbx2 = (CheckBox) findViewById(R.id.cbxBrownie2);
+
+            if (cbx2 != null)
+                cbx2.setChecked(cbx.isChecked());
+        }
+
+        if (cbx.getId() == R.id.cbxBrownie2) {
+            CheckBox cbx2 = (CheckBox) findViewById(R.id.cbxBrownie);
+
+            if (cbx2 != null)
+                cbx2.setChecked(cbx.isChecked());
+        }
+
         if (cbx.isChecked()) {
             cbx.setChecked(true);
             if (!cart.containsKey(cbx.getText().toString()))
