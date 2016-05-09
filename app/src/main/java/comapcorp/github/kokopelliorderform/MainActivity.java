@@ -4,12 +4,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     EditText etxtName;
     EditText etxtId;
     Button btnOrder;
-    ArrayList<OrderedItem> cart;
+    HashMap<String, Integer> cart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         etxtName = (EditText) findViewById(R.id.etxtName);
         etxtId = (EditText) findViewById(R.id.etxtId);
 
-        cart = new ArrayList<OrderedItem>();
+        cart = new HashMap<String, Integer>();
 
         btnOrder.setEnabled(false);
 
@@ -81,4 +84,18 @@ public class MainActivity extends AppCompatActivity {
         else
             btnOrder.setEnabled(false);
     }
+
+    public void checkBoxClicked(View v) {
+        CheckBox cbx = (CheckBox) v;
+
+        if (cbx.isChecked()) {
+            cbx.setChecked(true);
+            if (!cart.containsKey(cbx.getText().toString()))
+                cart.put(cbx.getText().toString(), new Integer(1));
+        } else {
+            if (cart.containsKey(cbx.getText().toString()))
+                cart.remove(cbx.getText().toString());
+        }
+    }
+
 }

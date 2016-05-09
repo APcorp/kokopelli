@@ -20,8 +20,6 @@ public class WelcomeScreen extends AppCompatActivity {
 
         setContentView(R.layout.activity_welcome_screen);
 
-        Button btnNewOrder = (Button) findViewById(R.id.btnNew);
-        btnNewOrder.setEnabled(false);
 
     }
 
