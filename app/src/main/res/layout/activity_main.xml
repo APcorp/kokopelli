@@ -9,103 +9,125 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:padding="16dp">
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
 
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/etxtName"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Welcome"
-                android:textSize="56sp" />
+                android:hint="@string/etxt_name_hint"
+                android:maxLength="50"
+                android:maxLines="1"
+                android:textAppearance="?android:textAppearanceLarge" />
 
-            <TextView
-
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/etxtId"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Welcome"
-                android:textSize="56sp" />
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Welcome"
-                android:textSize="56sp" />
+                android:hint="@string/etxt_id_hint"
+                android:maxLength="6"
+                android:maxLines="1"
+                android:textAppearance="?android:textAppearanceLarge" />
 
             <TextView
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Welcome"
-                android:textSize="56sp" />
+                android:textAppearance="?android:textAppearanceLarge" />
 
             <TextView
-
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Welcome"
-                android:textSize="56sp" />
+                android:text="@string/txt_popular_text"
+                android:textAppearance="?android:textAppearanceLarge" />
 
-            <TextView
-
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Welcome"
-                android:textSize="56sp" />
+                android:gravity="center_vertical">
 
-            <TextView
+                <CheckBox
+                    android:id="@+id/cbxBrownie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbx_brownie_text"
+                    android:textAppearance="?android:textAppearanceLarge" />
 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Welcome"
-                android:textSize="56sp" />
+            </LinearLayout>
 
             <TextView
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Welcome"
-                android:textSize="56sp" />
+                android:textAppearance="?android:textAppearanceLarge" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_snacks_text"
+                android:textAppearance="?android:textAppearanceLarge" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <CheckBox
+                    android:id="@id/cbxBrownie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbx_brownie_text"
+                    android:textAppearance="?android:textAppearanceLarge" />
+
+
+            </LinearLayout>
 
             <TextView
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Welcome"
-                android:textSize="56sp" />
+                android:textAppearance="?android:textAppearanceLarge" />
 
             <TextView
-
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Welcome"
-                android:textSize="56sp" />
+                android:text="@string/txt_drinks_text"
+                android:textAppearance="?android:textAppearanceLarge" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <CheckBox
+                    android:id="@+id/cbxHotChocolate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbx_hot_chocolate_text"
+                    android:textAppearance="?android:textAppearanceLarge" />
+
+            </LinearLayout>
+
 
         </LinearLayout>
     </ScrollView>
 
     <Button
+        android:id="@+id/btnOrder"
         style="?android:buttonBarButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@color/colorPrimary"
-        android:text="ORDER"
-        android:textColor="@android:color/white"
-        android:textSize="24sp" />
+        android:enabled="false"
+        android:text="@string/btn_order_text"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textColor="@android:color/white" />
 </LinearLayout>

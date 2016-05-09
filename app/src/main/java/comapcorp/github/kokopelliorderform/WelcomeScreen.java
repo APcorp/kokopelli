@@ -19,7 +19,10 @@ public class WelcomeScreen extends AppCompatActivity {
             getSupportActionBar().hide();
 
         setContentView(R.layout.activity_welcome_screen);
-        setTitle("Welcome");
+
+        Button btnNewOrder = (Button) findViewById(R.id.btnNew);
+        btnNewOrder.setEnabled(false);
+
     }
 
     public void goToMain(View v) {

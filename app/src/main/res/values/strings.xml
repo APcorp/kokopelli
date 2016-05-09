@@ -4,4 +4,12 @@
     <string name="welcome_subtitle">Goodness awaits</string>
     <string name="welcome_message">Welcome</string>
     <string name="button_fav_text">Favorites</string>
+    <string name="etxt_name_hint">Name (required)</string>
+    <string name="etxt_id_hint">Student ID (required)</string>
+    <string name="txt_popular_text">Popular Items</string>
+    <string name="txt_snacks_text">Snacks</string>
+    <string name="txt_drinks_text">Drinks</string>
+    <string name="btn_order_text">ORDER</string>
+    <string name="cbx_brownie_text">Brownie</string>
+    <string name="cbx_hot_chocolate_text">Hot Chocolate</string>
 </resources>
