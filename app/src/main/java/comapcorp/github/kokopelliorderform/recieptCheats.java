@@ -17,7 +17,7 @@ public class recieptCheats {
     //ADDS TWO NUMBERS AND RETURNS THE TOTAL, PRINTS THE WORK DONE (used for printing the final reciept?)
     public int addUp(int num1, int num2){
         int total = num1 + num2;
-        System.out.println("Total:" + formatDollars(num1) + " + new item (@strings/) " + formatDollars(num2) + " = " + formatDollars(total));
+        System.out.println("Total:" + formatDollars(num1) + " + {new item)@strings/itemInQuestion " + formatDollars(num2) + " = " + formatDollars(total));
         return total;
     }
 
