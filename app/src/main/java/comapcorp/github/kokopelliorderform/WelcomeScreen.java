@@ -19,7 +19,8 @@ public class WelcomeScreen extends AppCompatActivity {
             getSupportActionBar().hide();
 
         setContentView(R.layout.activity_welcome_screen);
-        setTitle("Welcome");
+
+
     }
 
     public void goToMain(View v) {
