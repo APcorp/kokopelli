@@ -136,6 +136,7 @@
             android:textAppearance="?android:textAppearanceLarge" />
 
         <TextView
+            android:id="@+id/txtPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="$0.00"

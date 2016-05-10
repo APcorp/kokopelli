@@ -10,8 +10,10 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Formatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
     Button btnOrder;
     HashMap<String, Integer> cart;
     HashMap<String, Double> prices;
-    int totalPrice;
+    TextView price;
+    double totalPrice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,9 @@ public class MainActivity extends AppCompatActivity {
         cart = new HashMap<String, Integer>();
         prices = new HashMap<String, Double>();
 
+        price = (TextView) findViewById(R.id.txtPrice);
         prices.put("Brownie", 0.75);
+        prices.put("Hot Chocolate", 1.25);
 
         etxtName.addTextChangedListener(new TextWatcher() {
             @Override
@@ -106,17 +111,33 @@ public class MainActivity extends AppCompatActivity {
 
         if (cbx.isChecked()) {
             cbx.setChecked(true);
-            if (!cart.containsKey(cbx.getText().toString()))
+            if (!cart.containsKey(cbx.getText().toString())) {
                 cart.put(cbx.getText().toString(), new Integer(1));
+
+            }
         } else {
             if (cart.containsKey(cbx.getText().toString()))
                 cart.remove(cbx.getText().toString());
         }
-
+        calculatePrice();
         enableButton();
     }
 
     public void goToCheckout(View v) {
         startActivity(new Intent(getApplicationContext(), FinalActivity.class));
+    }
+
+    public void calculatePrice() {
+        totalPrice = 0;
+        for (Map.Entry<String, Integer> i : cart.entrySet()) {
+            totalPrice += prices.get(i.getKey()) * i.getValue();
+        }
+
+        Formatter format = new Formatter();
+
+        format.format("$%.2f", totalPrice);
+        String priceDisplay = format.toString();
+        price.setText(priceDisplay);
+
     }
 }
