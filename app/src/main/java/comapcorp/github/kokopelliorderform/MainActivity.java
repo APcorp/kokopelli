@@ -1,5 +1,6 @@
 package comapcorp.github.kokopelliorderform;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -16,29 +17,30 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    boolean nameEntered;
-    boolean idEntered;
-    boolean itemSelected;
+    String name;
+    String id;
     EditText etxtName;
     EditText etxtId;
     Button btnOrder;
     HashMap<String, Integer> cart;
+    HashMap<String, Double> prices;
+    int totalPrice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        nameEntered = false;
-        idEntered = false;
-        itemSelected = false;
+        name = "";
+        id = "";
         btnOrder = (Button) findViewById(R.id.btnOrder);
         etxtName = (EditText) findViewById(R.id.etxtName);
         etxtId = (EditText) findViewById(R.id.etxtId);
 
         cart = new HashMap<String, Integer>();
+        prices = new HashMap<String, Double>();
 
-        btnOrder.setEnabled(false);
+        prices.put("Brownie", 0.75);
 
         etxtName.addTextChangedListener(new TextWatcher() {
             @Override
@@ -48,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                nameEntered = !etxtName.getText().toString().equals("");
+                name = etxtName.getText().toString();
                 enableButton();
             }
 
@@ -66,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                idEntered = !etxtName.getText().toString().equals("");
+                id = etxtName.getText().toString();
                 enableButton();
             }
 
@@ -79,10 +81,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void enableButton() {
-        if (nameEntered && idEntered && itemSelected)
-            btnOrder.setEnabled(true);
-        else
-            btnOrder.setEnabled(false);
+        boolean readyForCheckout = !name.equals("") && !id.equals("") && cart.size() != 0;
+
+        btnOrder.setEnabled(readyForCheckout);
+        btnOrder.setClickable(readyForCheckout);
     }
 
     public void checkBoxClicked(View v) {
@@ -110,6 +112,11 @@ public class MainActivity extends AppCompatActivity {
             if (cart.containsKey(cbx.getText().toString()))
                 cart.remove(cbx.getText().toString());
         }
+
+        enableButton();
     }
 
+    public void goToCheckout(View v) {
+        startActivity(new Intent(getApplicationContext(), FinalActivity.class));
+    }
 }

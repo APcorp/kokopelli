@@ -112,6 +112,7 @@
                     android:id="@+id/cbxHotChocolate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:onClick="checkBoxClicked"
                     android:text="@string/cbx_hot_chocolate_text"
                     android:textAppearance="?android:textAppearanceLarge" />
 
@@ -121,15 +122,59 @@
         </LinearLayout>
     </ScrollView>
 
-    <Button
-        android:id="@+id/btnOrder"
-        style="?android:buttonBarButtonStyle"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@color/colorPrimary"
-        android:enabled="false"
-        android:text="@string/btn_order_text"
-        android:textAppearance="?android:textAppearanceLarge"
-        android:textColor="@android:color/white" />
+        android:gravity="center_vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/txt_total_text"
+            android:textAppearance="?android:textAppearanceLarge" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$0.00"
+            android:textAppearance="?android:textAppearanceLarge" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnOrder"
+            style="?android:buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:clickable="false"
+            android:enabled="false"
+            android:onClick="goToCheckout"
+            android:text="@string/btn_order_text"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btnFavOrder"
+            style="?android:buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:clickable="false"
+            android:enabled="false"
+            android:onClick="goToCheckout"
+            android:text="@string/btn_favorite_order_text"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
 </LinearLayout>
