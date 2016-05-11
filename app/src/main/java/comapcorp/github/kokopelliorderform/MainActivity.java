@@ -1,21 +1,20 @@
 package comapcorp.github.kokopelliorderform;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.Formatter;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     EditText etxtName;
     EditText etxtId;
     Button btnOrder;
-    HashMap<String, Integer> cart;
+    Set<OrderedItem> cart;
     HashMap<String, Double> prices;
     TextView price;
     double totalPrice;
@@ -40,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         etxtName = (EditText) findViewById(R.id.etxtName);
         etxtId = (EditText) findViewById(R.id.etxtId);
 
-        cart = new HashMap<String, Integer>();
+        cart = new TreeSet<OrderedItem>();
         prices = new HashMap<String, Double>();
 
         price = (TextView) findViewById(R.id.txtPrice);
@@ -110,15 +109,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (cbx.isChecked()) {
-            cbx.setChecked(true);
-            if (!cart.containsKey(cbx.getText().toString())) {
-                cart.put(cbx.getText().toString(), new Integer(1));
 
-            }
+            cart.add(new OrderedItem(cbx.getText().toString(), 1));
+
         } else {
-            if (cart.containsKey(cbx.getText().toString()))
-                cart.remove(cbx.getText().toString());
+
+            cart.remove(new OrderedItem(cbx.getText().toString(), 1));
+
         }
+
         calculatePrice();
         enableButton();
     }
@@ -129,8 +128,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void calculatePrice() {
         totalPrice = 0;
-        for (Map.Entry<String, Integer> i : cart.entrySet()) {
-            totalPrice += prices.get(i.getKey()) * i.getValue();
+
+        for (OrderedItem i : cart) {
+            totalPrice += prices.get(i.getItemName()) * i.getQuantity();
         }
 
         Formatter format = new Formatter();
