@@ -76,7 +76,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:orientation="vertical">
 
                 <CheckBox
                     android:id="@+id/cbxBrownie2"
@@ -86,6 +87,12 @@
                     android:text="@string/cbx_brownie_text"
                     android:textAppearance="?android:textAppearanceLarge" />
 
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="checkBoxClicked"
+                    android:text="Muffin"
+                    android:textAppearance="?android:textAppearanceLarge" />
 
             </LinearLayout>
 
