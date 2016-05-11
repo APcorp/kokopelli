@@ -11,10 +11,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Formatter;
 import java.util.HashMap;
-import java.util.Set;
-import java.util.TreeSet;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,10 +22,11 @@ public class MainActivity extends AppCompatActivity {
     EditText etxtName;
     EditText etxtId;
     Button btnOrder;
-    Set<OrderedItem> cart;
+    ArrayList<OrderedItem> cart;
     HashMap<String, Double> prices;
     TextView price;
     double totalPrice;
+    EditText etxtMuffin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +39,13 @@ public class MainActivity extends AppCompatActivity {
         etxtName = (EditText) findViewById(R.id.etxtName);
         etxtId = (EditText) findViewById(R.id.etxtId);
 
-        cart = new TreeSet<OrderedItem>();
-        prices = new HashMap<String, Double>();
+        cart = new ArrayList<>();
+        prices = new HashMap<>();
 
         price = (TextView) findViewById(R.id.txtPrice);
         prices.put("Brownie", 0.75);
         prices.put("Hot Chocolate", 1.25);
+        prices.put("Muffin", 0.75);
 
         etxtName.addTextChangedListener(new TextWatcher() {
             @Override
@@ -82,6 +83,43 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        final EditText etxtBrownieQty = (EditText) findViewById(R.id.etxtBrownie);
+
+        if (etxtBrownieQty != null) etxtBrownieQty.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                updateQuantity(s, "Brownie");
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        etxtMuffin = (EditText) findViewById(R.id.etxtMuffin);
+
+        if (etxtMuffin != null) etxtMuffin.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                updateQuantity(s, "Muffin");
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
     private void enableButton() {
@@ -94,28 +132,22 @@ public class MainActivity extends AppCompatActivity {
     public void checkBoxClicked(View v) {
         CheckBox cbx = (CheckBox) v;
 
-        if (cbx.getId() == R.id.cbxBrownie) {
-            CheckBox cbx2 = (CheckBox) findViewById(R.id.cbxBrownie2);
-
-            if (cbx2 != null)
-                cbx2.setChecked(cbx.isChecked());
-        }
-
-        if (cbx.getId() == R.id.cbxBrownie2) {
-            CheckBox cbx2 = (CheckBox) findViewById(R.id.cbxBrownie);
-
-            if (cbx2 != null)
-                cbx2.setChecked(cbx.isChecked());
-        }
-
         if (cbx.isChecked()) {
 
-            cart.add(new OrderedItem(cbx.getText().toString(), 1));
+            if (!cart.contains(new OrderedItem(cbx.getText().toString(), 1))) {
+                EditText temp = (EditText) findViewById(cbx.getNextFocusRightId());
 
+                if (temp != null)
+                    cart.add(new OrderedItem(cbx.getText().toString(), Integer.parseInt(temp.getText().toString())));
+            }
+
+
+            setQuantityVisibility(cbx, View.VISIBLE, true);
         } else {
 
-            cart.remove(new OrderedItem(cbx.getText().toString(), 1));
+            remove(new OrderedItem(cbx.getText().toString(), 1));
 
+            setQuantityVisibility(cbx, View.GONE, false);
         }
 
         calculatePrice();
@@ -139,5 +171,52 @@ public class MainActivity extends AppCompatActivity {
         String priceDisplay = format.toString();
         price.setText(priceDisplay);
 
+    }
+
+    private boolean remove(OrderedItem removeItem) {
+        boolean found = false;
+
+        for (int i = 0; i < cart.size() && !found; ++i) {
+            if (removeItem.equals(cart.get(i))) {
+                cart.remove(i);
+                found = true;
+            }
+        }
+
+        return found;
+    }
+
+    private int find(OrderedItem foundItem) {
+        int index = -1;
+
+        for (int i = 0; i < cart.size() && index == -1; ++i) {
+            if (foundItem.equals(cart.get(i))) {
+                index = i;
+            }
+        }
+
+        return index;
+    }
+
+    private void setQuantityVisibility(CheckBox cbx, int visibility, boolean enabled) {
+        EditText etxtQuantity = (EditText) findViewById(cbx.getNextFocusRightId());
+
+        if (etxtQuantity != null) {
+            etxtQuantity.setVisibility(visibility);
+            etxtQuantity.setEnabled(enabled);
+            etxtQuantity.setClickable(enabled);
+        }
+    }
+
+    private void updateQuantity(CharSequence s, String itemName) {
+        if (!s.toString().contains("-") && !s.toString().equals("")) {
+            int index = find(new OrderedItem(itemName, 1));
+
+            if (index > -1) {
+                cart.get(index).setQuantity(Integer.parseInt(s.toString()));
+            }
+        }
+
+        calculatePrice();
     }
 }
