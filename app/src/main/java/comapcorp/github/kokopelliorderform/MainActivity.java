@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
     HashMap<String, Double> prices;
     TextView price;
     double totalPrice;
-    EditText etxtMuffin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        final EditText etxtBrownieQty = (EditText) findViewById(R.id.etxtBrownie);
+        EditText etxtBrownieQty = (EditText) findViewById(R.id.etxtBrownie);
 
         if (etxtBrownieQty != null) etxtBrownieQty.addTextChangedListener(new TextWatcher() {
             @Override
@@ -102,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        etxtMuffin = (EditText) findViewById(R.id.etxtMuffin);
+        EditText etxtMuffin = (EditText) findViewById(R.id.etxtMuffin);
 
         if (etxtMuffin != null) etxtMuffin.addTextChangedListener(new TextWatcher() {
             @Override
@@ -113,6 +112,25 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 updateQuantity(s, "Muffin");
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        EditText etxtHotChocolate = (EditText) findViewById(R.id.etxtHotChocolate);
+
+        if (etxtHotChocolate != null) etxtHotChocolate.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                updateQuantity(s, "Hot Chocolate");
             }
 
             @Override

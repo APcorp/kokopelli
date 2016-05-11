@@ -78,7 +78,7 @@
                         android:gravity="end|center_vertical"
                         android:hint="@string/etxt_qty"
                         android:inputType="number"
-                        android:text="1"
+                        android:text="@string/qty_1"
                         android:visibility="gone" />
                 </LinearLayout>
 
@@ -107,7 +107,7 @@
                         android:gravity="end|center_vertical"
                         android:hint="@string/etxt_qty"
                         android:inputType="number"
-                        android:text="1"
+                        android:text="@string/qty_1"
                         android:visibility="gone" />
                 </LinearLayout>
 
@@ -129,15 +129,36 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:orientation="vertical">
 
-                <CheckBox
-                    android:id="@+id/cbxHotChocolate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="checkBoxClicked"
-                    android:text="@string/cbx_hot_chocolate_text"
-                    android:textAppearance="?android:textAppearanceLarge" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/cbxHotChocolate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:nextFocusRight="@+id/etxtHotChocolate"
+                        android:onClick="checkBoxClicked"
+                        android:text="@string/cbx_hot_chocolate_text"
+                        android:textAppearance="?android:textAppearanceLarge" />
+
+                    <EditText
+                        android:id="@+id/etxtHotChocolate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:ems="2"
+                        android:enabled="false"
+                        android:gravity="end|center_vertical"
+                        android:hint="@string/etxt_qty"
+                        android:inputType="number"
+                        android:text="@string/qty_1"
+                        android:visibility="gone" />
+                </LinearLayout>
 
             </LinearLayout>
 
