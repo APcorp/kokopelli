@@ -165,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
 
             remove(new OrderedItem(cbx.getText().toString(), 1));
 
-            setQuantityVisibility(cbx, View.GONE, false);
+            setQuantityVisibility(cbx, View.INVISIBLE, false);
         }
 
         calculatePrice();
@@ -222,7 +222,6 @@ public class MainActivity extends AppCompatActivity {
         if (etxtQuantity != null) {
             etxtQuantity.setVisibility(visibility);
             etxtQuantity.setEnabled(enabled);
-            etxtQuantity.setClickable(enabled);
         }
     }
 
