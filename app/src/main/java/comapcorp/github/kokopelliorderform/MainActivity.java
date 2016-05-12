@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Formatter;
@@ -32,12 +33,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        name = "";
-        id = "";
+
         btnOrder = (Button) findViewById(R.id.btnOrder);
         etxtName = (EditText) findViewById(R.id.etxtName);
         etxtId = (EditText) findViewById(R.id.etxtId);
-
+        name = etxtName.getText().toString();
+        id = etxtId.getText().toString();
         cart = new ArrayList<>();
         prices = new HashMap<>();
 
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 name = etxtName.getText().toString();
-                enableButton();
+                //enableButton();
             }
 
             @Override
@@ -72,8 +73,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                id = etxtName.getText().toString();
-                enableButton();
+                id = etxtId.getText().toString();
+                // enableButton();
             }
 
             @Override
@@ -143,8 +144,9 @@ public class MainActivity extends AppCompatActivity {
     private void enableButton() {
         boolean readyForCheckout = !name.equals("") && !id.equals("") && cart.size() != 0;
 
+
         btnOrder.setEnabled(readyForCheckout);
-        btnOrder.setClickable(readyForCheckout);
+
     }
 
     public void checkBoxClicked(View v) {
@@ -169,11 +171,30 @@ public class MainActivity extends AppCompatActivity {
         }
 
         calculatePrice();
-        enableButton();
+        //enableButton();
     }
 
     public void goToCheckout(View v) {
-        startActivity(new Intent(getApplicationContext(), FinalActivity.class));
+        boolean readyForCheckout = !name.equals("") && !id.equals("") && cart.size() != 0;
+
+
+        if (readyForCheckout) {
+            Intent intent = new Intent(getApplicationContext(), FinalActivity.class);
+
+            intent.putExtra("Name", name);
+            intent.putExtra("ID", id);
+
+            intent.putExtra("Total", totalPrice);
+
+            for (OrderedItem i : cart) {
+                intent.putExtra(i.getItemName(), i.getQuantity());
+            }
+
+            startActivity(intent);
+        } else {
+            Toast.makeText(getApplicationContext(), "You need to enter your name and id and order an item!", Toast.LENGTH_SHORT).show();
+
+        }
     }
 
     public void calculatePrice() {
