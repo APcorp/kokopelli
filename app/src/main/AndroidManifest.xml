@@ -10,9 +10,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:parentActivityName=".WelcomeScreen">
-
-        </activity>
+            android:parentActivityName=".WelcomeScreen"></activity>
         <activity android:name=".WelcomeScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +20,10 @@
         </activity>
         <activity
             android:name=".FavoriteActivity"
-            android:parentActivityName=".WelcomeScreen">
+            android:parentActivityName=".WelcomeScreen"></activity>
+        <activity
+            android:name=".FinalActivity"
+            android:parentActivityName=".MainActivity">
 
         </activity>
     </application>

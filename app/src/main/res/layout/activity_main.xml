@@ -1,111 +1,225 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="comapcorp.github.kokopelliorderform.MainActivity">
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:padding="16dp">
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
+            <EditText
+                android:id="@+id/etxtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/etxt_name_hint"
+                android:maxLength="50"
+                android:maxLines="1"
+                android:textAppearance="?android:textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/etxtId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/etxt_id_hint"
+                android:inputType="number"
+                android:maxLength="6"
+                android:maxLines="1"
+                android:textAppearance="?android:textAppearanceLarge" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceLarge" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_snacks_text"
+                android:textAppearance="?android:textAppearanceLarge" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/cbxBrownie"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:nextFocusRight="@+id/etxtBrownie"
+                        android:onClick="checkBoxClicked"
+                        android:text="@string/cbx_brownie_text"
+                        android:textAppearance="?android:textAppearanceLarge" />
+
+                    <EditText
+                        android:id="@+id/etxtBrownie"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:ems="2"
+                        android:enabled="false"
+                        android:gravity="end|center_vertical"
+                        android:hint="@string/etxt_qty"
+                        android:inputType="number"
+                        android:text="@string/qty_1"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/cbxMuffin"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:nextFocusRight="@+id/etxtMuffin"
+                        android:onClick="checkBoxClicked"
+                        android:text="@string/cbx_muffin_text"
+                        android:textAppearance="?android:textAppearanceLarge" />
+
+                    <EditText
+                        android:id="@+id/etxtMuffin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:ems="2"
+                        android:enabled="false"
+                        android:gravity="end|center_vertical"
+                        android:hint="@string/etxt_qty"
+                        android:inputType="number"
+                        android:text="@string/qty_1"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
             <TextView
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Welcome"
-                android:textSize="56sp" />
+                android:textAppearance="?android:textAppearanceLarge" />
 
             <TextView
-
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Welcome"
-                android:textSize="56sp" />
+                android:text="@string/txt_drinks_text"
+                android:textAppearance="?android:textAppearanceLarge" />
 
-            <TextView
-
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Welcome"
-                android:textSize="56sp" />
+                android:gravity="center_vertical"
+                android:orientation="vertical">
 
-            <TextView
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Welcome"
-                android:textSize="56sp" />
+                    <CheckBox
+                        android:id="@+id/cbxHotChocolate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:nextFocusRight="@+id/etxtHotChocolate"
+                        android:onClick="checkBoxClicked"
+                        android:text="@string/cbx_hot_chocolate_text"
+                        android:textAppearance="?android:textAppearanceLarge" />
 
-            <TextView
+                    <EditText
+                        android:id="@+id/etxtHotChocolate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:ems="2"
+                        android:enabled="false"
+                        android:gravity="end|center_vertical"
+                        android:hint="@string/etxt_qty"
+                        android:inputType="number"
+                        android:text="@string/qty_1"
+                        android:visibility="gone" />
+                </LinearLayout>
 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Welcome"
-                android:textSize="56sp" />
+            </LinearLayout>
 
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Welcome"
-                android:textSize="56sp" />
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Welcome"
-                android:textSize="56sp" />
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Welcome"
-                android:textSize="56sp" />
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Welcome"
-                android:textSize="56sp" />
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Welcome"
-                android:textSize="56sp" />
 
         </LinearLayout>
     </ScrollView>
 
-    <Button
-        style="?android:buttonBarButtonStyle"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@color/colorPrimary"
-        android:text="ORDER"
-        android:textColor="@android:color/white"
-        android:textSize="24sp" />
+        android:gravity="center_vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/txt_total_text"
+            android:textAppearance="?android:textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/txtPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_price_text"
+            android:textAppearance="?android:textAppearanceLarge" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnOrder"
+            style="?android:buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:clickable="false"
+            android:enabled="false"
+            android:onClick="goToCheckout"
+            android:text="@string/btn_order_text"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btnFavOrder"
+            style="?android:buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:clickable="false"
+            android:enabled="false"
+            android:onClick="goToCheckout"
+            android:text="@string/btn_favorite_order_text"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
 </LinearLayout>
