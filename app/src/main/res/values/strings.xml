@@ -19,4 +19,18 @@
     <string name="txt_price_text">$0.00</string>
     <string name="qty_1">1</string>
     <string name="itemInQuestion">ChangeThisWhenNewItemIsSelected</string>
+    <string name="etxt_name_hint">Name (required)</string>
+    <string name="etxt_id_hint">Student ID (required)</string>
+    <string name="txt_popular_text">Popular Items</string>
+    <string name="txt_snacks_text">Snacks</string>
+    <string name="txt_drinks_text">Drinks</string>
+    <string name="btn_order_text">ORDER</string>
+    <string name="cbx_brownie_text">Brownie</string>
+    <string name="cbx_hot_chocolate_text">Hot Chocolate</string>
+    <string name="btn_favorite_order_text">FAVORITE</string>
+    <string name="txt_total_text">Total</string>
+    <string name="etxt_qty">Qty.</string>
+    <string name="cbx_muffin_text">Muffin</string>
+    <string name="txt_price_text">$0.00</string>
+    <string name="qty_1">1</string>
 </resources>
