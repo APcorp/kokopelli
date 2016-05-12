@@ -3,7 +3,7 @@ package comapcorp.github.kokopelliorderform;
 /**
  * Created by Theodore on 5/8/16.
  */
-public class OrderedItem {
+public class OrderedItem implements Comparable<OrderedItem> {
     private String itemName;
     private int quantity;
 
@@ -26,5 +26,13 @@ public class OrderedItem {
 
     public void setQuantity(int newQuantity) {
         quantity = newQuantity;
+    }
+
+    public int compareTo(OrderedItem other) {
+        return itemName.compareTo(other.getItemName());
+    }
+
+    public boolean equals(OrderedItem other) {
+        return compareTo(other) == 0;
     }
 }
