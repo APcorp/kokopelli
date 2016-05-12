@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">Kokopelli Order Form</string>
     <string name="button_new_text">New Order</string>
-    <string name="welcome_subtitle">Warm your belly with Kokopelli</string>
+    <string name="welcome_subtitle">Goodness awaits</string>
     <string name="welcome_message">Welcome</string>
     <string name="button_fav_text">Favorites</string>
+    <string name="itemInQuestion">ChangeThisWhenNewItemIsSelected</string>
     <string name="etxt_name_hint">Name (required)</string>
     <string name="etxt_id_hint">Student ID (required)</string>
     <string name="txt_popular_text">Popular Items</string>
@@ -18,5 +19,4 @@
     <string name="cbx_muffin_text">Muffin</string>
     <string name="txt_price_text">$0.00</string>
     <string name="qty_1">1</string>
-    <string name="itemInQuestion">ChangeThisWhenNewItemIsSelected</string>
 </resources>
