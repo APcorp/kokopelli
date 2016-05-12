@@ -56,7 +56,8 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
 
                     <CheckBox
                         android:id="@+id/cbxBrownie"
@@ -72,20 +73,21 @@
                         android:id="@+id/etxtBrownie"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:clickable="false"
                         android:ems="2"
                         android:enabled="false"
                         android:gravity="end|center_vertical"
                         android:hint="@string/etxt_qty"
                         android:inputType="number"
                         android:text="@string/qty_1"
-                        android:visibility="gone" />
+                        android:visibility="invisible"
+                        android:background="@android:color/transparent"/>
                 </LinearLayout>
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
 
                     <CheckBox
                         android:id="@+id/cbxMuffin"
@@ -108,7 +110,8 @@
                         android:hint="@string/etxt_qty"
                         android:inputType="number"
                         android:text="@string/qty_1"
-                        android:visibility="gone" />
+                        android:visibility="invisible"
+                        android:background="@android:color/transparent"/>
                 </LinearLayout>
 
 
@@ -134,7 +137,8 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
 
                     <CheckBox
                         android:id="@+id/cbxHotChocolate"
@@ -157,7 +161,8 @@
                         android:hint="@string/etxt_qty"
                         android:inputType="number"
                         android:text="@string/qty_1"
-                        android:visibility="gone" />
+                        android:visibility="invisible"
+                        android:background="@android:color/transparent"/>
                 </LinearLayout>
 
             </LinearLayout>
