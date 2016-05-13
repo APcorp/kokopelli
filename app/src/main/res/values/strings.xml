@@ -38,4 +38,7 @@
     <string name="txt_hot_drinks_text">Hot Drinks</string>
     <string name="cbx_regular_coffee_text">Regular Coffee</string>
     <string name="cbx_hazelnut_coffee_text">Hazelnut Coffee</string>
+    <string name="cbx_green_tea_text">Green Tea</string>
+    <string name="cbx_highlander_grogg_text">Highlander Grogg</string>
+    <string name="cbx_decaf_coffee_text">Decaf Coffee</string>
 </resources>

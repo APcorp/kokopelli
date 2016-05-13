@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        EditText etxtBrownieQty = (EditText) findViewById(R.id.etxtBrownie);
+        EditText etxtBrownieQty = (EditText) findViewById(R.id.etxtCaramelMacchiatoCappuccino);
 
         if (etxtBrownieQty != null) etxtBrownieQty.addTextChangedListener(new TextWatcher() {
             @Override
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        EditText etxtMuffin = (EditText) findViewById(R.id.etxtMuffin);
+        EditText etxtMuffin = (EditText) findViewById(R.id.etxtChaiTea);
 
         if (etxtMuffin != null) etxtMuffin.addTextChangedListener(new TextWatcher() {
             @Override
