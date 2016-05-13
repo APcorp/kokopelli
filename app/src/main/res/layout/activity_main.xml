@@ -45,15 +45,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Smoothie"
+                android:text="@string/txt_smoothie_text"
                 android:textAppearance="?android:textAppearanceLarge" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Fruit and yogurt blended with milk."
-                android:id="@+id/textView" />
+                android:text="@string/txt_smoothie_description"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -67,27 +66,27 @@
                     android:gravity="center_vertical">
 
                     <CheckBox
-                        android:id="@+id/cbxBrownie"
+                        android:id="@+id/cbxStrawberrySmoothie"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:nextFocusRight="@+id/etxtBrownie"
+                        android:nextFocusRight="@+id/etxtStrawberrySmoothie"
                         android:onClick="checkBoxClicked"
-                        android:text="Strawberry"
+                        android:text="@string/cbx_strawberry_text"
                         android:textAppearance="?android:textAppearanceLarge" />
 
                     <EditText
-                        android:id="@+id/etxtBrownie"
+                        android:id="@+id/etxtStrawberrySmoothie"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
                         android:ems="2"
                         android:enabled="false"
                         android:gravity="end|center_vertical"
                         android:hint="@string/etxt_qty"
                         android:inputType="number"
                         android:text="@string/qty_1"
-                        android:visibility="invisible"
-                        android:background="@android:color/transparent"/>
+                        android:visibility="invisible" />
                 </LinearLayout>
 
 
@@ -97,19 +96,20 @@
                     android:gravity="center_vertical">
 
                     <CheckBox
-                        android:id="@+id/cbxMuffin"
+                        android:id="@+id/cbxMixedBerrySmoothie"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:nextFocusRight="@+id/etxtMuffin"
+                        android:nextFocusRight="@+id/etxtMixedBerrySmoothie"
                         android:onClick="checkBoxClicked"
-                        android:text="Mixed Berry"
+                        android:text="@string/cbx_mixed_berry_smoothie_text"
                         android:textAppearance="?android:textAppearanceLarge" />
 
                     <EditText
-                        android:id="@+id/etxtMuffin"
+                        android:id="@+id/etxtMixedBerrySmoothie"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
                         android:clickable="false"
                         android:ems="2"
                         android:enabled="false"
@@ -117,25 +117,42 @@
                         android:hint="@string/etxt_qty"
                         android:inputType="number"
                         android:text="@string/qty_1"
-                        android:visibility="invisible"
-                        android:background="@android:color/transparent"/>
+                        android:visibility="invisible" />
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
 
+                    <CheckBox
+                        android:id="@+id/cbxTropicalFruitSmoothie"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:nextFocusRight="@+id/etxtTropicalFruitSmoothie"
+                        android:onClick="checkBoxClicked"
+                        android:text="@string/cbx_tropical_fruit_smoothie_text"
+                        android:textAppearance="?android:textAppearanceLarge" />
+
+                    <EditText
+                        android:id="@+id/etxtTropicalFruitSmoothie"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:clickable="false"
+                        android:ems="2"
+                        android:enabled="false"
+                        android:gravity="end|center_vertical"
+                        android:hint="@string/etxt_qty"
+                        android:inputType="number"
+                        android:text="@string/qty_1"
+                        android:visibility="invisible" />
+                </LinearLayout>
             </LinearLayout>
 
-            <CheckBox
-                android:id="@+id/checkBox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:nextFocusRight="@+id/etxtBrownie"
-                android:onClick="checkBoxClicked"
-                android:text="Tropical Fruit"
-                android:textAppearance="?android:textAppearanceLarge" />
 
             <TextView
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceLarge" />
@@ -143,131 +160,401 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Iced Drinks"
+                android:text="@string/txt_iced_drinks_text"
                 android:textAppearance="?android:textAppearanceLarge" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Cappuccino blended with milk and ice."
-                android:id="@+id/textView2" />
+                android:text="@string/txt_iced_drinks_description"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
                 android:orientation="vertical">
 
-                <CheckBox
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Iced Caramel"
-                    android:id="@+id/checkBox4"
-                    android:textAppearance="?android:textAppearanceLarge" />
+                    android:gravity="center_vertical">
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Iced Chocolate"
-                    android:id="@+id/checkBox3" />
+                    <CheckBox
+                        android:id="@+id/cbxIcedCaramel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:nextFocusRight="@+id/etxtIcedCaramel"
+                        android:onClick="checkBoxClicked"
+                        android:text="@string/cbx_iced_caramel_text"
+                        android:textAppearance="?android:textAppearanceLarge" />
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Iced Vanilla Cappuccino"
-                    android:id="@+id/checkBox2" />
+                    <EditText
+                        android:id="@+id/etxtIcedCaramel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:clickable="false"
+                        android:ems="2"
+                        android:enabled="false"
+                        android:gravity="end|center_vertical"
+                        android:hint="@string/etxt_qty"
+                        android:inputType="number"
+                        android:text="@string/qty_1"
+                        android:visibility="invisible" />
+                </LinearLayout>
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Iced Chai"
-                    android:id="@+id/checkBox5" />
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView3" />
+                    android:gravity="center_vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Hot Mixed Drinks"
-                    android:id="@+id/textView4" />
+                    <CheckBox
+                        android:id="@+id/cbxIcedChocolate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:nextFocusRight="@+id/etxtIcedChocolate"
+                        android:onClick="checkBoxClicked"
+                        android:text="@string/cbx_iced_chocolate_text"
+                        android:textAppearance="?android:textAppearanceLarge" />
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="French Vanilla Cappuccino"
-                    android:id="@+id/checkBox6" />
+                    <EditText
+                        android:id="@+id/etxtIcedChocolate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:clickable="false"
+                        android:ems="2"
+                        android:enabled="false"
+                        android:gravity="end|center_vertical"
+                        android:hint="@string/etxt_qty"
+                        android:inputType="number"
+                        android:text="@string/qty_1"
+                        android:visibility="invisible" />
+                </LinearLayout>
 
-                <CheckBox
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Caramel Macchiato Cappuccino"
-                    android:id="@+id/checkBox7" />
+                    android:gravity="center_vertical">
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Hot Chocolate"
-                    android:id="@+id/checkBox8" />
+                    <CheckBox
+                        android:id="@+id/cbxIcedVanillaCappuccino"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:nextFocusRight="@+id/etxtIcedVanillaCappuccino"
+                        android:onClick="checkBoxClicked"
+                        android:text="@string/cbx_iced_vanilla_cappuccino_text"
+                        android:textAppearance="?android:textAppearanceLarge" />
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Chai Tea"
-                    android:id="@+id/checkBox9" />
+                    <EditText
+                        android:id="@+id/etxtIcedVanillaCappuccino"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:clickable="false"
+                        android:ems="2"
+                        android:enabled="false"
+                        android:gravity="end|center_vertical"
+                        android:hint="@string/etxt_qty"
+                        android:inputType="number"
+                        android:text="@string/qty_1"
+                        android:visibility="invisible" />
+                </LinearLayout>
 
-                <CheckBox
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Apple Cider"
-                    android:id="@+id/checkBox10" />
+                    android:gravity="center_vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView5" />
+                    <CheckBox
+                        android:id="@+id/cbxIcedChai"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:nextFocusRight="@+id/etxtIcedChai"
+                        android:onClick="checkBoxClicked"
+                        android:text="@string/txt_iced_chai_text"
+                        android:textAppearance="?android:textAppearanceLarge" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Hot Drinks"
-                    android:id="@+id/textView6" />
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Regular Coffee"
-                    android:id="@+id/checkBox11" />
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Hazelnut Coffee"
-                    android:id="@+id/checkBox12" />
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/checkBox13"
-                    android:text="Highlander Grogg" />
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Decaf Coffee"
-                    android:id="@+id/checkBox14" />
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Green Tea"
-                    android:id="@+id/checkBox15" />
+                    <EditText
+                        android:id="@+id/etxtIcedChai"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:clickable="false"
+                        android:ems="2"
+                        android:enabled="false"
+                        android:gravity="end|center_vertical"
+                        android:hint="@string/etxt_qty"
+                        android:inputType="number"
+                        android:text="@string/qty_1"
+                        android:visibility="invisible" />
+                </LinearLayout>
 
             </LinearLayout>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_hot_mixed_drinks_text"
+                android:textAppearance="?android:textAppearanceLarge" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <CheckBox
+                        android:id="@+id/cbxChaiTea"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:nextFocusRight="@+id/etxtChaiTea"
+                        android:onClick="checkBoxClicked"
+                        android:text="@string/cbx_chai_tea_text"
+                        android:textAppearance="?android:textAppearanceLarge" />
+
+                    <EditText
+                        android:id="@+id/etxtChaiTea"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:clickable="false"
+                        android:ems="2"
+                        android:enabled="false"
+                        android:gravity="end|center_vertical"
+                        android:hint="@string/etxt_qty"
+                        android:inputType="number"
+                        android:text="@string/qty_1"
+                        android:visibility="invisible" />
+                </LinearLayout>
+
+                <CheckBox
+                    android:id="@+id/checkBox15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Green Tea" />
+
+                <CheckBox
+                    android:id="@+id/checkBox13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Highlander Grogg" />
+
+                <CheckBox
+                    android:id="@+id/checkBox14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Decaf Coffee" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <CheckBox
+                        android:id="@+id/cbxHotChocolate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:nextFocusRight="@+id/etxtHotChocolate"
+                        android:onClick="checkBoxClicked"
+                        android:text="@string/cbx_hot_chocolate_text"
+                        android:textAppearance="?android:textAppearanceLarge" />
+
+                    <EditText
+                        android:id="@+id/etxtHotChocolate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:clickable="false"
+                        android:ems="2"
+                        android:enabled="false"
+                        android:gravity="end|center_vertical"
+                        android:hint="@string/etxt_qty"
+                        android:inputType="number"
+                        android:text="@string/qty_1"
+                        android:visibility="invisible" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <CheckBox
+                        android:id="@+id/cbxAppleCider"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:nextFocusRight="@+id/etxtAppleCider"
+                        android:onClick="checkBoxClicked"
+                        android:text="@string/cbx_apple_cider_text"
+                        android:textAppearance="?android:textAppearanceLarge" />
+
+                    <EditText
+                        android:id="@+id/etxtAppleCider"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:clickable="false"
+                        android:ems="2"
+                        android:enabled="false"
+                        android:gravity="end|center_vertical"
+                        android:hint="@string/etxt_qty"
+                        android:inputType="number"
+                        android:text="@string/qty_1"
+                        android:visibility="invisible" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <CheckBox
+                        android:id="@+id/cbxRegularCoffee"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:nextFocusRight="@+id/etxtRegularCoffee"
+                        android:onClick="checkBoxClicked"
+                        android:text="@string/cbx_regular_coffee_text"
+                        android:textAppearance="?android:textAppearanceLarge" />
+
+                    <EditText
+                        android:id="@+id/etxtRegularCoffee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:clickable="false"
+                        android:ems="2"
+                        android:enabled="false"
+                        android:gravity="end|center_vertical"
+                        android:hint="@string/etxt_qty"
+                        android:inputType="number"
+                        android:text="@string/qty_1"
+                        android:visibility="invisible" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_hot_drinks_text"
+                android:textAppearance="?android:textAppearanceLarge" />
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <CheckBox
+                    android:id="@+id/cbxCaramelMacchiatoCappuccino"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:nextFocusRight="@+id/etxtCaramelMacchiatoCappuccino"
+                    android:onClick="checkBoxClicked"
+                    android:text="@string/cbx_caramel_macchiato_cappuccino_text"
+                    android:textAppearance="?android:textAppearanceLarge" />
+
+                <EditText
+                    android:id="@+id/etxtCaramelMacchiatoCappuccino"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:clickable="false"
+                    android:ems="2"
+                    android:enabled="false"
+                    android:gravity="end|center_vertical"
+                    android:hint="@string/etxt_qty"
+                    android:inputType="number"
+                    android:text="@string/qty_1"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <CheckBox
+                    android:id="@+id/cbxHazelnutCoffee"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:nextFocusRight="@+id/etxtHazelnutCoffee"
+                    android:onClick="checkBoxClicked"
+                    android:text="@string/cbx_hazelnut_coffee_text"
+                    android:textAppearance="?android:textAppearanceLarge" />
+
+                <EditText
+                    android:id="@+id/etxtHazelnutCoffee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:clickable="false"
+                    android:ems="2"
+                    android:enabled="false"
+                    android:gravity="end|center_vertical"
+                    android:hint="@string/etxt_qty"
+                    android:inputType="number"
+                    android:text="@string/qty_1"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceLarge" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <CheckBox
+                    android:id="@+id/cbxFrenchVanillaCappuccino"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:nextFocusRight="@+id/etxtFrenchVanillaCappuccino"
+                    android:onClick="checkBoxClicked"
+                    android:text="@string/cbx_french_vanilla_cappuccino_text"
+                    android:textAppearance="?android:textAppearanceLarge" />
+
+                <EditText
+                    android:id="@+id/etxtFrenchVanillaCappuccino"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:clickable="false"
+                    android:ems="2"
+                    android:enabled="false"
+                    android:gravity="end|center_vertical"
+                    android:hint="@string/etxt_qty"
+                    android:inputType="number"
+                    android:text="@string/qty_1"
+                    android:visibility="invisible" />
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
