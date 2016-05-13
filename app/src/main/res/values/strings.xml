@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Kokopelli Order Form</string>
     <string name="button_new_text">New Order</string>
-    <string name="welcome_subtitle">Goodness awaits</string>
+    <string name="welcome_subtitle">Warm your belly with Kokopelli</string>
     <string name="welcome_message">Welcome</string>
     <string name="button_fav_text">Favorites</string>
     <string name="itemInQuestion">ChangeThisWhenNewItemIsSelected</string>
