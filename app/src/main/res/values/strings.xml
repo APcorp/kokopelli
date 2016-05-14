@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Kokopelli Order Form</string>
     <string name="button_new_text">New Order</string>
-    <string name="welcome_subtitle">Goodness awaits</string>
+    <string name="welcome_subtitle">Warm your belly with Kokopelli</string>
     <string name="welcome_message">Welcome</string>
     <string name="button_fav_text">Favorites</string>
     <string name="itemInQuestion">ChangeThisWhenNewItemIsSelected</string>
@@ -19,4 +19,26 @@
     <string name="cbx_muffin_text">Muffin</string>
     <string name="txt_price_text">$0.00</string>
     <string name="qty_1">1</string>
+    <string name="txt_smoothie_text">Smoothies</string>
+    <string name="txt_smoothie_description">Fruit and yogurt blended with milk.</string>
+    <string name="cbx_strawberry_text">Strawberry</string>
+    <string name="cbx_mixed_berry_smoothie_text">Mixed Berry</string>
+    <string name="cbx_tropical_fruit_smoothie_text">Tropical Fruit</string>
+    <string name="txt_iced_drinks_text">Iced Drinks</string>
+    <string name="txt_iced_drinks_description">Cappuccino blended with milk and ice.</string>
+    <string name="cbx_iced_caramel_text">Iced Caramel</string>
+    <string name="cbx_iced_chocolate_text">Iced Chocolate</string>
+    <string name="cbx_iced_vanilla_cappuccino_text">Iced Vanilla Cappuccino</string>
+    <string name="cbx_iced_chai_text">Iced Chai</string>
+    <string name="txt_hot_mixed_drinks_text">Hot Mixed Drinks</string>
+    <string name="cbx_french_vanilla_cappuccino_text">French Vanilla Cappuccino</string>
+    <string name="cbx_caramel_macchiato_cappuccino_text">Caramel Macchiato Cappucino</string>
+    <string name="cbx_chai_tea_text">Chai Tea</string>
+    <string name="cbx_apple_cider_text">Apple Cider</string>
+    <string name="txt_hot_drinks_text">Hot Drinks</string>
+    <string name="cbx_regular_coffee_text">Regular Coffee</string>
+    <string name="cbx_hazelnut_coffee_text">Hazelnut Coffee</string>
+    <string name="cbx_green_tea_text">Green Tea</string>
+    <string name="cbx_highlander_grogg_text">Highlander Grogg</string>
+    <string name="cbx_decaf_coffee_text">Decaf Coffee</string>
 </resources>
