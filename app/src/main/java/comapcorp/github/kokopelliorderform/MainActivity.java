@@ -286,7 +286,6 @@ public class MainActivity extends AppCompatActivity {
     public void goToCheckout(View v) {
         boolean readyForCheckout = !name.equals("") && !id.equals("") && cart.size() != 0;
 
-
         if (readyForCheckout) {
             Intent intent = new Intent(getApplicationContext(), FinalActivity.class);
 
@@ -295,9 +294,10 @@ public class MainActivity extends AppCompatActivity {
 
             intent.putExtra("Total", totalPrice);
 
-            for (OrderedItem i : cart) {
-                intent.putExtra(i.getItemName(), i.getQuantity());
-            }
+            Bundle b = new Bundle();
+            b.putParcelableArrayList("cart", cart);
+
+            intent.putExtra("cart", b);
 
             startActivity(intent);
         } else {
