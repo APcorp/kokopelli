@@ -278,7 +278,7 @@
                         android:layout_weight="1"
                         android:nextFocusRight="@+id/etxtIcedChai"
                         android:onClick="checkBoxClicked"
-                        android:text="@string/txt_iced_chai_text"
+                        android:text="@string/cbx_iced_chai_text"
                         android:textAppearance="?android:textAppearanceLarge" />
 
                     <EditText

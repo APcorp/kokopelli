@@ -20,32 +20,76 @@ public class MainActivity extends AppCompatActivity {
 
     String name;
     String id;
+
     EditText etxtName;
     EditText etxtId;
+
     Button btnOrder;
+
     ArrayList<OrderedItem> cart;
     HashMap<String, Double> prices;
+    ArrayList<QuantityBox> boxes;
+
     TextView price;
     double totalPrice;
+
+    final double COFFEEPRICE = 1.25;
+    final double CAPPUCCINOPRICE = 1.50;
+    final double ICEDDRINKPRICE = 2.00;
+    final double SMOOTHIEPRICE = 2.00;
+    final double HOTCHOCOLATEPRICE = 1.50;
+    final double APPLECIDERPRICE = 1.50;
+    final double CHAITEAPRICE = 1.50;
+    final double GREENTEAPRICE = 1.25;
+    final double CHILLERPRICE = 1.50;
+    final double MILKPRICE = 0.50;
+    final double SNACKPRICE = 0.75;
+    final double FRUITPRICE = 0.50;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        // initializing the order button and the EditTexts that allow the user to input their name
+        // and id
         btnOrder = (Button) findViewById(R.id.btnOrder);
         etxtName = (EditText) findViewById(R.id.etxtName);
         etxtId = (EditText) findViewById(R.id.etxtId);
+
+        // initizlizes the name and ids to whatever is in the EditTexts for name and id. Usually
+        // it's nothing
         name = etxtName.getText().toString();
         id = etxtId.getText().toString();
+
+        // initializes our cart, menu of prices, and the data structure for all our quantity boxes
         cart = new ArrayList<>();
         prices = new HashMap<>();
+        boxes = new ArrayList<>();
 
         price = (TextView) findViewById(R.id.txtPrice);
-        prices.put("Brownie", 0.75);
-        prices.put("Hot Chocolate", 1.25);
-        prices.put("Muffin", 0.75);
+
+        // adds prices to the price menu
+        prices.put(getString(R.string.cbx_brownie_text), SNACKPRICE);
+        prices.put(getString(R.string.cbx_hot_chocolate_text), HOTCHOCOLATEPRICE);
+        prices.put(getString(R.string.cbx_muffin_text), SNACKPRICE);
+        prices.put(getString(R.string.cbx_regular_coffee_text), COFFEEPRICE);
+        prices.put(getString(R.string.cbx_hazelnut_coffee_text), COFFEEPRICE);
+        prices.put(getString(R.string.cbx_highlander_grogg_text), COFFEEPRICE);
+        prices.put(getString(R.string.cbx_decaf_coffee_text), COFFEEPRICE);
+        prices.put(getString(R.string.cbx_french_vanilla_cappuccino_text), CAPPUCCINOPRICE);
+        prices.put(getString(R.string.cbx_caramel_macchiato_cappuccino_text), CAPPUCCINOPRICE);
+        prices.put(getString(R.string.cbx_iced_chocolate_text), ICEDDRINKPRICE);
+        prices.put(getString(R.string.cbx_iced_chai_text), ICEDDRINKPRICE);
+        prices.put(getString(R.string.cbx_iced_caramel_text), ICEDDRINKPRICE);
+        prices.put(getString(R.string.cbx_iced_vanilla_cappuccino_text), ICEDDRINKPRICE);
+        prices.put(getString(R.string.cbx_strawberry_text), SMOOTHIEPRICE);
+        prices.put(getString(R.string.cbx_mixed_berry_smoothie_text), SMOOTHIEPRICE);
+        prices.put(getString(R.string.cbx_tropical_fruit_smoothie_text), SMOOTHIEPRICE);
+        prices.put(getString(R.string.cbx_apple_cider_text), APPLECIDERPRICE);
+        prices.put(getString(R.string.cbx_chai_tea_text), CHAITEAPRICE);
+        prices.put(getString(R.string.cbx_green_tea_text), GREENTEAPRICE);
+
 
         etxtName.addTextChangedListener(new TextWatcher() {
             @Override

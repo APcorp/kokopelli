@@ -29,7 +29,7 @@
     <string name="cbx_iced_caramel_text">Iced Caramel</string>
     <string name="cbx_iced_chocolate_text">Iced Chocolate</string>
     <string name="cbx_iced_vanilla_cappuccino_text">Iced Vanilla Cappuccino</string>
-    <string name="txt_iced_chai_text">Iced Chai</string>
+    <string name="cbx_iced_chai_text">Iced Chai</string>
     <string name="txt_hot_mixed_drinks_text">Hot Mixed Drinks</string>
     <string name="cbx_french_vanilla_cappuccino_text">French Vanilla Cappuccino</string>
     <string name="cbx_caramel_macchiato_cappuccino_text">Caramel Macchiato Cappucino</string>
