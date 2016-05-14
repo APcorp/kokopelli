@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         etxtName = (EditText) findViewById(R.id.etxtName);
         etxtId = (EditText) findViewById(R.id.etxtId);
 
-        // initizlizes the name and ids to whatever is in the EditTexts for name and id. Usually
+        // initializes the name and ids to whatever is in the EditTexts for name and id. Usually
         // it's nothing
         name = etxtName.getText().toString();
         id = etxtId.getText().toString();
@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         price = (TextView) findViewById(R.id.txtPrice);
 
         // adds prices to the price menu
+
         prices.put(getString(R.string.cbx_brownie_text), SNACKPRICE);
         prices.put(getString(R.string.cbx_hot_chocolate_text), HOTCHOCOLATEPRICE);
         prices.put(getString(R.string.cbx_muffin_text), SNACKPRICE);
@@ -90,7 +91,27 @@ public class MainActivity extends AppCompatActivity {
         prices.put(getString(R.string.cbx_chai_tea_text), CHAITEAPRICE);
         prices.put(getString(R.string.cbx_green_tea_text), GREENTEAPRICE);
 
+        // adding all the quantity boxes to an array for easy handling
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtHotChocolate), getString(R.string.cbx_hot_chocolate_text)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtRegularCoffee), getString(R.string.cbx_regular_coffee_text)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtHazelnutCoffee), getString(R.string.cbx_hazelnut_coffee_text)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtHighlanderGrogg), getString(R.string.cbx_highlander_grogg_text)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtDecafCoffee), getString(R.string.cbx_decaf_coffee_text)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtFrenchVanillaCappuccino), getString(R.string.cbx_french_vanilla_cappuccino_text)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtCaramelMacchiatoCappuccino), getString(R.string.cbx_caramel_macchiato_cappuccino_text)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtIcedChocolate), getString(R.string.cbx_iced_chocolate_text)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtIcedChai), getString(R.string.cbx_iced_chai_text)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtIcedCaramel), getString(R.string.cbx_iced_caramel_text)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtIcedVanillaCappuccino), getString(R.string.cbx_iced_vanilla_cappuccino_text)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtStrawberrySmoothie), getString(R.string.cbx_strawberry_text)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtMixedBerrySmoothie), getString(R.string.cbx_mixed_berry_smoothie_text)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtTropicalFruitSmoothie), getString(R.string.cbx_tropical_fruit_smoothie_text)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtAppleCider), getString(R.string.cbx_apple_cider_text)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtChaiTea), getString(R.string.cbx_chai_tea_text)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtGreenTea), getString(R.string.cbx_green_tea_text)));
 
+        // adding text changed listener for the name etxt so that when the user changes the name
+        // we know, and we can reset the name String
         etxtName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -109,6 +130,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // adding text changed listener for the id etxt so that we can reset the id to what they
+        // enter
         etxtId.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -127,6 +150,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // adding text changed listener for every quantity box next to every single item. fingers
+        // crossed, hope this works
+        for (final QuantityBox i : boxes) {
+            if (i.getQuantityBox() != null)
+                i.getQuantityBox().addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                        updateQuantity(s, i.getItemName());
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+
+                    }
+                });
+        }
+
+        /*
         EditText etxtBrownieQty = (EditText) findViewById(R.id.etxtCaramelMacchiatoCappuccino);
 
         if (etxtBrownieQty != null) etxtBrownieQty.addTextChangedListener(new TextWatcher() {
@@ -183,16 +229,27 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        */
     }
 
-    private void enableButton() {
-        boolean readyForCheckout = !name.equals("") && !id.equals("") && cart.size() != 0;
+    /*
+        private void enableButton() {
+            boolean readyForCheckout = !name.equals("") && !id.equals("") && cart.size() != 0;
 
 
-        btnOrder.setEnabled(readyForCheckout);
+            btnOrder.setEnabled(readyForCheckout);
 
-    }
+        }
+    */
 
+    /**
+     * <b>summary: </b>is called when any checkbox on the activity is clicked. if the checkbox is
+     * checked, then the adjacent EditText is revealed and the item is added
+     * to the cart. If it is not checked, then the adjacent EditText is made hidden, and the item is
+     * removed from the cart. The price is updated in either situation
+     *
+     * @param v default parameter
+     */
     public void checkBoxClicked(View v) {
         CheckBox cbx = (CheckBox) v;
 
@@ -218,6 +275,14 @@ public class MainActivity extends AppCompatActivity {
         //enableButton();
     }
 
+    /**
+     * <b>summary: </b>is called when the order button on the activity is clicked. checks to make
+     * sure that the name and id are entered. Also ensures that an item is ordered. If all these
+     * conditions are met, the method starts a new Intent containing all the relevant information
+     * on the page: name, id, and items ordered
+     *
+     * @param v default parameter
+     */
     public void goToCheckout(View v) {
         boolean readyForCheckout = !name.equals("") && !id.equals("") && cart.size() != 0;
 
@@ -237,10 +302,13 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         } else {
             Toast.makeText(getApplicationContext(), "You need to enter your name and id and order an item!", Toast.LENGTH_SHORT).show();
-
         }
     }
 
+    /**
+     * <b>summary: </b>goes through all items in the cart, finds their prices and quantities,
+     * then sums everything together. Stores the data in the global "price" variable
+     */
     public void calculatePrice() {
         totalPrice = 0;
 
@@ -256,6 +324,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * <b>summary: </b>allows other methods to remove an item from the cart. Particularly useful in
+     * the checkBoxClicked() method
+     *
+     * @param removeItem item that the client wishes to remove from the cart
+     * @return true if the item was found and removed. false otherwise
+     */
     private boolean remove(OrderedItem removeItem) {
         boolean found = false;
 
@@ -269,6 +344,13 @@ public class MainActivity extends AppCompatActivity {
         return found;
     }
 
+    /**
+     * <b>summary: </b>allows the client to find the index of a specific item in the cart. returns
+     * -1 if the item cannot be found in the cart
+     *
+     * @param foundItem item that the client wishes to find
+     * @return index of the item. -1 if the item cannot be found
+     */
     private int find(OrderedItem foundItem) {
         int index = -1;
 
@@ -281,6 +363,15 @@ public class MainActivity extends AppCompatActivity {
         return index;
     }
 
+    /**
+     * <b>summary: </b>allows the client to set the visibility of the EditText next to each
+     * checkbox. The user specifies the checkbox in question, the visibility they desire, and the
+     * enabledness of the EditText
+     *
+     * @param cbx        checkbox next to which the client wishes to find the EditText
+     * @param visibility the visibility of the EditText desired
+     * @param enabled    whether the EditText is enabled or no
+     */
     private void setQuantityVisibility(CheckBox cbx, int visibility, boolean enabled) {
         EditText etxtQuantity = (EditText) findViewById(cbx.getNextFocusRightId());
 
@@ -290,6 +381,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * <b>summary: </b>allows the client update the quantity of an item in the cart should the quantity
+     * ever need to be changed.
+     *
+     * @param s        contents of the EditText
+     * @param itemName name of the item in the cart
+     */
     private void updateQuantity(CharSequence s, String itemName) {
         if (!s.toString().contains("-") && !s.toString().equals("")) {
             int index = find(new OrderedItem(itemName, 1));
