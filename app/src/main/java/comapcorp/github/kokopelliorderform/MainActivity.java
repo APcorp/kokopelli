@@ -294,10 +294,11 @@ public class MainActivity extends AppCompatActivity {
 
             intent.putExtra("Total", totalPrice);
 
-            Bundle b = new Bundle();
-            b.putParcelableArrayList("cart", cart);
+            for (int i = 0; i < cart.size(); ++i) {
+                System.out.println(cart.get(i).getItemName());
+            }
 
-            intent.putExtra("cart", b);
+            intent.putParcelableArrayListExtra("cart", cart);
 
             startActivity(intent);
         } else {

@@ -9,11 +9,12 @@ import android.os.Parcelable;
 public class OrderedItem implements Comparable<OrderedItem>, Parcelable {
     private String itemName;
     private int quantity;
-    private int mData;
+
 
     public OrderedItem(String name, int quantity) {
         itemName = name;
         this.quantity = quantity;
+
     }
 
     public String getItemName() {
@@ -40,13 +41,13 @@ public class OrderedItem implements Comparable<OrderedItem>, Parcelable {
         return compareTo(other) == 0;
     }
 
-
     public int describeContents() {
         return 0;
     }
 
     public void writeToParcel(Parcel out, int flags) {
-        out.writeInt(mData);
+        out.writeString(itemName);
+        out.writeInt(quantity);
     }
 
     public static final Parcelable.Creator<OrderedItem> CREATOR = new Parcelable.Creator<OrderedItem>() {
@@ -60,6 +61,7 @@ public class OrderedItem implements Comparable<OrderedItem>, Parcelable {
     };
 
     private OrderedItem(Parcel in) {
-        mData = in.readInt();
+        this.itemName = in.readString();
+        this.quantity = in.readInt();
     }
 }
