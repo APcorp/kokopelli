@@ -14,7 +14,9 @@ public class FinalActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("Review Your Order");
         setContentView(R.layout.activity_final);
+
 
         Intent intent = getIntent();
 
