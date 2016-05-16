@@ -643,14 +643,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:padding="16dp">
+        android:paddingBottom="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/txt_total_text"
-            android:textAppearance="?android:textAppearanceLarge" />
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtPrice"

@@ -154,6 +154,8 @@ public class MainActivity extends AppCompatActivity {
         // crossed, hope this works
         for (final QuantityBox i : boxes) {
             if (i.getQuantityBox() != null)
+
+                i.getQuantityBox().setSelectAllOnFocus(true);
                 i.getQuantityBox().addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -294,10 +296,11 @@ public class MainActivity extends AppCompatActivity {
 
             intent.putExtra("Total", totalPrice);
 
-            Bundle b = new Bundle();
-            b.putParcelableArrayList("cart", cart);
+            for (int i = 0; i < cart.size(); ++i) {
+                System.out.println(cart.get(i).getItemName());
+            }
 
-            intent.putExtra("cart", b);
+            intent.putParcelableArrayListExtra("cart", cart);
 
             startActivity(intent);
         } else {
