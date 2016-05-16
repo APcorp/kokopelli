@@ -86,9 +86,6 @@ public class FinalActivity extends AppCompatActivity {
 
     public void sendEmail(View v) {
 
-        String recipients[] = new String[1];
-
-        recipients[0] = "16liuth@waunakeecsd.org";
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:"));
         intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"16liuth@waunakeecsd.org"});
