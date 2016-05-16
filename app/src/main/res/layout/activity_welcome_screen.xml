@@ -43,7 +43,7 @@
             android:layout_weight="1"
             android:background="@color/colorPrimary"
             android:onClick="goToMain"
-            android:text="@string/button_new_text"
+            android:text="@string/new_order"
             android:textAppearance="?android:textAppearanceLarge"
             android:textColor="@android:color/white" />
 
@@ -55,7 +55,7 @@
             android:layout_weight="1"
             android:background="@color/colorPrimary"
             android:onClick="goToFavorites"
-            android:text="@string/button_fav_text"
+            android:text="@string/favorites"
             android:textAppearance="?android:textAppearanceLarge"
             android:textColor="@android:color/white" />
 
