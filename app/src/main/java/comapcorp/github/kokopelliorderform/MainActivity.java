@@ -30,20 +30,15 @@ public class MainActivity extends AppCompatActivity {
     HashMap<String, Double> prices;
     ArrayList<QuantityBox> boxes;
 
-    TextView price;
-    double totalPrice;
+    TextView total;
+    double price;
 
-    final double COFFEEPRICE = 1.25;
-    final double CAPPUCCINOPRICE = 1.50;
-    final double ICEDDRINKPRICE = 2.00;
     final double SMOOTHIEPRICE = 2.00;
-    final double HOTCHOCOLATEPRICE = 1.50;
-    final double APPLECIDERPRICE = 1.50;
-    final double CHAITEAPRICE = 1.50;
-    final double GREENTEAPRICE = 1.25;
+    final double ICEDDRINKPRICE = 2.00;
+    final double HOTMIXEDDRINKPRICE = 1.50;
     final double CHILLERPRICE = 1.50;
-    final double MILKPRICE = 0.50;
-    final double SNACKPRICE = 0.75;
+    final double HOTDRINKPRICE = 1.25;
+    final double TREATPRICE = 0.75;
     final double FRUITPRICE = 0.50;
 
     @Override
@@ -67,48 +62,92 @@ public class MainActivity extends AppCompatActivity {
         prices = new HashMap<>();
         boxes = new ArrayList<>();
 
-        price = (TextView) findViewById(R.id.txtPrice);
+        total = (TextView) findViewById(R.id.txtPrice);
 
         // adds prices to the price menu
+        // smoothies
+        prices.put(getString(R.string.strawberry_smoothie), SMOOTHIEPRICE);
+        prices.put(getString(R.string.mixed_berry_smoothie), SMOOTHIEPRICE);
+        prices.put(getString(R.string.tropical_fruit_smoothie), SMOOTHIEPRICE);
 
-        prices.put(getString(R.string.cbx_brownie_text), SNACKPRICE);
-        prices.put(getString(R.string.cbx_hot_chocolate_text), HOTCHOCOLATEPRICE);
-        prices.put(getString(R.string.cbx_muffin_text), SNACKPRICE);
-        prices.put(getString(R.string.cbx_regular_coffee_text), COFFEEPRICE);
-        prices.put(getString(R.string.cbx_hazelnut_coffee_text), COFFEEPRICE);
-        prices.put(getString(R.string.cbx_highlander_grogg_text), COFFEEPRICE);
-        prices.put(getString(R.string.cbx_decaf_coffee_text), COFFEEPRICE);
-        prices.put(getString(R.string.cbx_french_vanilla_cappuccino_text), CAPPUCCINOPRICE);
-        prices.put(getString(R.string.cbx_caramel_macchiato_cappuccino_text), CAPPUCCINOPRICE);
-        prices.put(getString(R.string.cbx_iced_chocolate_text), ICEDDRINKPRICE);
-        prices.put(getString(R.string.cbx_iced_chai_text), ICEDDRINKPRICE);
-        prices.put(getString(R.string.cbx_iced_caramel_text), ICEDDRINKPRICE);
-        prices.put(getString(R.string.cbx_iced_vanilla_cappuccino_text), ICEDDRINKPRICE);
-        prices.put(getString(R.string.cbx_strawberry_text), SMOOTHIEPRICE);
-        prices.put(getString(R.string.cbx_mixed_berry_smoothie_text), SMOOTHIEPRICE);
-        prices.put(getString(R.string.cbx_tropical_fruit_smoothie_text), SMOOTHIEPRICE);
-        prices.put(getString(R.string.cbx_apple_cider_text), APPLECIDERPRICE);
-        prices.put(getString(R.string.cbx_chai_tea_text), CHAITEAPRICE);
-        prices.put(getString(R.string.cbx_green_tea_text), GREENTEAPRICE);
+        // iced drinks
+        prices.put(getString(R.string.iced_chocolate), ICEDDRINKPRICE);
+        prices.put(getString(R.string.iced_chai), ICEDDRINKPRICE);
+        prices.put(getString(R.string.iced_caramel), ICEDDRINKPRICE);
+        prices.put(getString(R.string.iced_vanilla_cappuccino), ICEDDRINKPRICE);
+
+        // chillers
+        prices.put(getString(R.string.french_vanilla_chiller_short), CHILLERPRICE);
+        prices.put(getString(R.string.caramel_chiller_short), CHILLERPRICE);
+
+        // hot mixed drinks
+        prices.put(getString(R.string.french_vanilla_cappuccino), HOTMIXEDDRINKPRICE);
+        prices.put(getString(R.string.caramel_macchiato_cappuccino), HOTMIXEDDRINKPRICE);
+        prices.put(getString(R.string.hot_chocolate), HOTMIXEDDRINKPRICE);
+        prices.put(getString(R.string.chai_tea), HOTMIXEDDRINKPRICE);
+        prices.put(getString(R.string.apple_cider), HOTMIXEDDRINKPRICE);
+
+        // hot drinks
+        prices.put(getString(R.string.regular_coffee), HOTDRINKPRICE);
+        prices.put(getString(R.string.hazelnut_coffee), HOTDRINKPRICE);
+        prices.put(getString(R.string.highlander_grogg), HOTDRINKPRICE);
+        prices.put(getString(R.string.decaf_coffee), HOTDRINKPRICE);
+        prices.put(getString(R.string.green_tea), HOTDRINKPRICE);
+
+        // treats
+        prices.put(getString(R.string.brownie), TREATPRICE);
+        prices.put(getString(R.string.blueberry_muffin), TREATPRICE);
+        prices.put(getString(R.string.lemon_poppy_seed_muffin), TREATPRICE);
+        prices.put(getString(R.string.chocolate_chip_muffin), TREATPRICE);
+        prices.put(getString(R.string.cinnamon_streusel_muffin), TREATPRICE);
+
+        // fruit
+        prices.put(getString(R.string.apple), FRUITPRICE);
+        prices.put(getString(R.string.banana), FRUITPRICE);
+        prices.put(getString(R.string.orange), FRUITPRICE);
 
         // adding all the quantity boxes to an array for easy handling
-        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtHotChocolate), getString(R.string.cbx_hot_chocolate_text)));
-        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtRegularCoffee), getString(R.string.cbx_regular_coffee_text)));
-        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtHazelnutCoffee), getString(R.string.cbx_hazelnut_coffee_text)));
-        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtHighlanderGrogg), getString(R.string.cbx_highlander_grogg_text)));
-        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtDecafCoffee), getString(R.string.cbx_decaf_coffee_text)));
-        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtFrenchVanillaCappuccino), getString(R.string.cbx_french_vanilla_cappuccino_text)));
-        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtCaramelMacchiatoCappuccino), getString(R.string.cbx_caramel_macchiato_cappuccino_text)));
-        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtIcedChocolate), getString(R.string.cbx_iced_chocolate_text)));
-        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtIcedChai), getString(R.string.cbx_iced_chai_text)));
-        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtIcedCaramel), getString(R.string.cbx_iced_caramel_text)));
-        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtIcedVanillaCappuccino), getString(R.string.cbx_iced_vanilla_cappuccino_text)));
-        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtStrawberrySmoothie), getString(R.string.cbx_strawberry_text)));
-        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtMixedBerrySmoothie), getString(R.string.cbx_mixed_berry_smoothie_text)));
-        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtTropicalFruitSmoothie), getString(R.string.cbx_tropical_fruit_smoothie_text)));
-        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtAppleCider), getString(R.string.cbx_apple_cider_text)));
-        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtChaiTea), getString(R.string.cbx_chai_tea_text)));
-        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtGreenTea), getString(R.string.cbx_green_tea_text)));
+        // smoothies
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtStrawberrySmoothie), getString(R.string.strawberry_smoothie)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtMixedBerrySmoothie), getString(R.string.mixed_berry_smoothie)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtTropicalFruitSmoothie), getString(R.string.tropical_fruit_smoothie)));
+
+        // iced drinks
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtIcedCaramel), getString(R.string.iced_caramel)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtIcedChocolate), getString(R.string.iced_chocolate)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtIcedVanillaCappuccino), getString(R.string.iced_vanilla_cappuccino)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtIcedChai), getString(R.string.iced_chai)));
+
+        // chillers
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtFrenchVanillaChiller), getString(R.string.french_vanilla_chiller_short)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtCaramelChiller), getString(R.string.caramel_chiller_short)));
+
+        // hot mixed drinks
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtFrenchVanillaCappuccino), getString(R.string.french_vanilla_cappuccino)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtCaramelMacchiatoCappuccino), getString(R.string.caramel_macchiato_cappuccino)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtHotChocolate), getString(R.string.hot_chocolate)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtChaiTea), getString(R.string.chai_tea)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtAppleCider), getString(R.string.apple_cider)));
+
+        // hot drinks
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtRegularCoffee), getString(R.string.regular_coffee)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtHazelnutCoffee), getString(R.string.hazelnut_coffee)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtHighlanderGrogg), getString(R.string.highlander_grogg)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtDecafCoffee), getString(R.string.decaf_coffee)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtGreenTea), getString(R.string.green_tea)));
+
+        // treats
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtBrownie), getString(R.string.brownie)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtBlueberryMuffin), getString(R.string.blueberry_muffin)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtLemonPoppySeedMuffin), getString(R.string.lemon_poppy_seed_muffin)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtChocolateChipMuffin), getString(R.string.chocolate_chip_muffin)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtCinnamonStreuselMuffin), getString(R.string.cinnamon_streusel_muffin)));
+
+        // fruit
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtApple), getString(R.string.apple)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtBanana), getString(R.string.banana)));
+        boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtOrange), getString(R.string.orange)));
+
 
         // adding text changed listener for the name etxt so that when the user changes the name
         // we know, and we can reset the name String
@@ -153,9 +192,9 @@ public class MainActivity extends AppCompatActivity {
         // adding text changed listener for every quantity box next to every single item. fingers
         // crossed, hope this works
         for (final QuantityBox i : boxes) {
-            if (i.getQuantityBox() != null)
-
+            if (i.getQuantityBox() != null) {
                 i.getQuantityBox().setSelectAllOnFocus(true);
+
                 i.getQuantityBox().addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -172,6 +211,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
+            }
         }
 
         /*
@@ -286,7 +326,12 @@ public class MainActivity extends AppCompatActivity {
      * @param v default parameter
      */
     public void goToCheckout(View v) {
-        boolean readyForCheckout = !name.equals("") && !id.equals("") && cart.size() != 0;
+        boolean nameEntered = !name.trim().equals("");
+        boolean idEntered = !id.equals("");
+        boolean cartReady = cart.size() != 0;
+
+
+        boolean readyForCheckout = nameEntered && idEntered && cartReady;
 
         if (readyForCheckout) {
             Intent intent = new Intent(getApplicationContext(), FinalActivity.class);
@@ -294,7 +339,7 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("Name", name);
             intent.putExtra("ID", id);
 
-            intent.putExtra("Total", totalPrice);
+            intent.putExtra("Total", price);
 
             for (int i = 0; i < cart.size(); ++i) {
                 System.out.println(cart.get(i).getItemName());
@@ -304,7 +349,24 @@ public class MainActivity extends AppCompatActivity {
 
             startActivity(intent);
         } else {
-            Toast.makeText(getApplicationContext(), "You need to enter your name and id and order an item!", Toast.LENGTH_SHORT).show();
+            if (!(nameEntered || idEntered || cartReady))
+                Toast.makeText(getApplicationContext(), "You need to enter your name and id and order an item!", Toast.LENGTH_SHORT).show();
+            else {
+                if (!(nameEntered || idEntered))
+                    Toast.makeText(getApplicationContext(), "You need to enter your name and id!", Toast.LENGTH_SHORT).show();
+                else if (!(nameEntered || cartReady))
+                    Toast.makeText(getApplicationContext(), "You need to enter your name and order an item!", Toast.LENGTH_SHORT).show();
+                else if (!(idEntered || cartReady))
+                    Toast.makeText(getApplicationContext(), "You need to enter your id and order an item!", Toast.LENGTH_SHORT).show();
+                else {
+                    if (!nameEntered)
+                        Toast.makeText(getApplicationContext(), "You need to enter your name!", Toast.LENGTH_SHORT).show();
+                    else if (!idEntered)
+                        Toast.makeText(getApplicationContext(), "You need to enter you id!", Toast.LENGTH_SHORT).show();
+                    else if (!cartReady)
+                        Toast.makeText(getApplicationContext(), "You need to order an item!", Toast.LENGTH_SHORT).show();
+                }
+            }
         }
     }
 
@@ -313,17 +375,17 @@ public class MainActivity extends AppCompatActivity {
      * then sums everything together. Stores the data in the global "price" variable
      */
     public void calculatePrice() {
-        totalPrice = 0;
+        price = 0;
 
         for (OrderedItem i : cart) {
-            totalPrice += prices.get(i.getItemName()) * i.getQuantity();
+            price += prices.get(i.getItemName()) * i.getQuantity();
         }
 
         Formatter format = new Formatter();
 
-        format.format("$%.2f", totalPrice);
+        format.format("$%.2f", price);
         String priceDisplay = format.toString();
-        price.setText(priceDisplay);
+        total.setText(priceDisplay);
 
     }
 
