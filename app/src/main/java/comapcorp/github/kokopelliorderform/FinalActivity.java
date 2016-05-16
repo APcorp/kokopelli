@@ -1,8 +1,10 @@
 package comapcorp.github.kokopelliorderform;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -80,5 +82,20 @@ public class FinalActivity extends AppCompatActivity {
         format.format("$%.2f", intent.getDoubleExtra("Total", 0.00));
 
         if (total != null) total.setText(format.toString());
+    }
+
+    public void sendEmail(View v) {
+
+        String recipients[] = new String[1];
+
+        recipients[0] = "16liuth@waunakeecsd.org";
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"16liuth@waunakeecsd.org"});
+        intent.putExtra(Intent.EXTRA_SUBJECT, "test");
+        intent.putExtra(Intent.EXTRA_TEXT, "this is a test message");
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 }
