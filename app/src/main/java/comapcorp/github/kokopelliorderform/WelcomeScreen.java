@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -84,8 +85,22 @@ public class WelcomeScreen extends AppCompatActivity implements GoogleApiClient.
             mEmail = acct.getEmail();
             mId = acct.getId();
 
+            int index = -1;
+
+            for (int i = 0; i < mEmail.length() && index == -1; ++i) {
+                if (mEmail.charAt(i) == '@')
+                    index = i;
+            }
+
+            if (mEmail.substring(index + 1).equals("waunakeecsd.org")) {
+                updateUI(true);
+            } else {
+                signOut();
+                Toast.makeText(getApplicationContext(), "You need to use your school gmail! You can add " +
+                        "additional accounts by clicking \"Add account\"", Toast.LENGTH_LONG).show();
+            }
             // mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
-            updateUI(true);
+
         } else {
             // Signed out, show unauthenticated UI.
             updateUI(false);
@@ -210,7 +225,7 @@ public class WelcomeScreen extends AppCompatActivity implements GoogleApiClient.
         LinearLayout welcomeMessage = (LinearLayout) findViewById(R.id.linWelcomeStuff);
         TextView welcomeUser = (TextView) findViewById(R.id.txtWelcomeUser);
 
-        String welcomeUserMessage = "Welcome, " + mUsername;
+        String welcomeUserMessage = "Welcome, " + mUsername + "!";
 
         welcomeUser.setText(welcomeUserMessage);
         welcomeMessage.setVisibility(View.GONE);
