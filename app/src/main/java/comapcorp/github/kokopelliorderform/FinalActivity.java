@@ -11,7 +11,11 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Formatter;
 
-public class FinalActivity extends AppCompatActivity {
+public class FinalActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private String mName;
+    private String mId;
+    private String mEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,20 +23,28 @@ public class FinalActivity extends AppCompatActivity {
         setTitle("Review Your Order");
         setContentView(R.layout.activity_final);
 
-
+        // gets the Intent from the previous activity
         Intent intent = getIntent();
 
+        // initializes the OnClickListener for the order button
+        findViewById(R.id.btnFinalOrder).setOnClickListener(this);
+
+        // initializes the TextViews that contain the user's name, id, and email
         TextView txtFinalName = (TextView) findViewById(R.id.finalName);
         TextView txtFinalId = (TextView) findViewById(R.id.finalId);
+        TextView txtFinalEmail = (TextView) findViewById(R.id.finalEmail);
 
+        mName = intent.getStringExtra("name");
+        mId = intent.getStringExtra("id");
+        mEmail = intent.getStringExtra("email");
+        // sets the relevant strings on the summary with the correct name and id and stuff
+        String name= "Name: " + mName;
+        String id = "ID: " + mId;
+        String email = mEmail;
 
-        String nameString = "Name: " + intent.getStringExtra("Name");
-
-        if (txtFinalName != null) txtFinalName.setText(nameString);
-
-        String idString = "ID: " + intent.getStringExtra("ID");
-
-        if (txtFinalId != null) txtFinalId.setText(idString);
+        txtFinalName.setText(name);
+        txtFinalId.setText(id);
+        txtFinalEmail.setText(email);
 
         ArrayList<OrderedItem> cart = intent.getParcelableArrayListExtra("cart");
 
@@ -44,7 +56,8 @@ public class FinalActivity extends AppCompatActivity {
 
         if (cart != null) size = cart.size();
 
-
+        // automatically generates a list of everything that the user had checked on the previous
+        // page
         for (int i = 0; i < size; ++i) {
 
             LinearLayout tempLayout = new LinearLayout(this);
@@ -84,11 +97,29 @@ public class FinalActivity extends AppCompatActivity {
         if (total != null) total.setText(format.toString());
     }
 
-    public void sendEmail(View v) {
+    /**
+     * <b>summary: </b>handles the clicking of all the buttons on this page. There is only one button
+     * on this activity at this point - Order
+     *
+     * @param v
+     */
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btnFinalOrder:
+                sendEmail();
+                break;
+        }
+    }
+
+    /**
+     * <b>summary: </b>sends an automatically generated email to the relevant parties - a receipt for
+     * the user and an order for Kokopelli
+     */
+    private void sendEmail() {
 
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:"));
-        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"16liuth@waunakeecsd.org"});
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{mEmail});
         intent.putExtra(Intent.EXTRA_SUBJECT, "test");
         intent.putExtra(Intent.EXTRA_TEXT, "this is a test message");
         if (intent.resolveActivity(getPackageManager()) != null) {

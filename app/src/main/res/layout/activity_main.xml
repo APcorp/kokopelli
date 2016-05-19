@@ -15,23 +15,22 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/etxtName"
+            <TextView
+                android:id="@+id/txtName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/name_hint"
-                android:maxLength="50"
-                android:maxLines="1"
                 android:textAppearance="?android:textAppearanceLarge" />
 
-            <EditText
-                android:id="@+id/etxtId"
+            <TextView
+                android:id="@+id/txtId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/id_hint"
-                android:inputType="number"
-                android:maxLength="6"
-                android:maxLines="1"
+                android:textAppearance="?android:textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/txtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceLarge" />
 
             <TextView
@@ -77,13 +76,13 @@
                         android:id="@+id/etxtBrownie"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:clickable="false"
                         android:ems="2"
                         android:enabled="false"
                         android:gravity="end|center_vertical"
                         android:hint="@string/qty"
                         android:inputType="number"
+                        android:maxLength="1"
                         android:text="@string/qty_1"
                         android:visibility="invisible" />
                 </LinearLayout>
@@ -107,13 +106,13 @@
                         android:id="@+id/etxtBlueberryMuffin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:clickable="false"
                         android:ems="2"
                         android:enabled="false"
                         android:gravity="end|center_vertical"
                         android:hint="@string/qty"
                         android:inputType="number"
+                        android:maxLength="1"
                         android:text="@string/qty_1"
                         android:visibility="invisible" />
                 </LinearLayout>
@@ -137,13 +136,13 @@
                         android:id="@+id/etxtLemonPoppySeedMuffin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:clickable="false"
                         android:ems="2"
                         android:enabled="false"
                         android:gravity="end|center_vertical"
                         android:hint="@string/qty"
                         android:inputType="number"
+                        android:maxLength="1"
                         android:text="@string/qty_1"
                         android:visibility="invisible" />
                 </LinearLayout>
@@ -167,13 +166,13 @@
                         android:id="@+id/etxtChocolateChipMuffin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:clickable="false"
                         android:ems="2"
                         android:enabled="false"
                         android:gravity="end|center_vertical"
                         android:hint="@string/qty"
                         android:inputType="number"
+                        android:maxLength="1"
                         android:text="@string/qty_1"
                         android:visibility="invisible" />
                 </LinearLayout>
@@ -197,13 +196,13 @@
                         android:id="@+id/etxtCinnamonStreuselMuffin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:clickable="false"
                         android:ems="2"
                         android:enabled="false"
                         android:gravity="end|center_vertical"
                         android:hint="@string/qty"
                         android:inputType="number"
+                        android:maxLength="1"
                         android:text="@string/qty_1"
                         android:visibility="invisible" />
                 </LinearLayout>
@@ -251,12 +250,12 @@
                         android:id="@+id/etxtStrawberrySmoothie"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:ems="2"
                         android:enabled="false"
                         android:gravity="end|center_vertical"
                         android:hint="@string/qty"
                         android:inputType="number"
+                        android:maxLength="1"
                         android:text="@string/qty_1"
                         android:visibility="invisible" />
                 </LinearLayout>
@@ -281,13 +280,13 @@
                         android:id="@+id/etxtMixedBerrySmoothie"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:clickable="false"
                         android:ems="2"
                         android:enabled="false"
                         android:gravity="end|center_vertical"
                         android:hint="@string/qty"
                         android:inputType="number"
+                        android:maxLength="1"
                         android:text="@string/qty_1"
                         android:visibility="invisible" />
                 </LinearLayout>
@@ -311,13 +310,13 @@
                         android:id="@+id/etxtTropicalFruitSmoothie"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:clickable="false"
                         android:ems="2"
                         android:enabled="false"
                         android:gravity="end|center_vertical"
                         android:hint="@string/qty"
                         android:inputType="number"
+                        android:maxLength="1"
                         android:text="@string/qty_1"
                         android:visibility="invisible" />
                 </LinearLayout>
@@ -367,13 +366,13 @@
                         android:id="@+id/etxtIcedCaramel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:clickable="false"
                         android:ems="2"
                         android:enabled="false"
                         android:gravity="end|center_vertical"
                         android:hint="@string/qty"
                         android:inputType="number"
+                        android:maxLength="1"
                         android:text="@string/qty_1"
                         android:visibility="invisible" />
                 </LinearLayout>
@@ -398,13 +397,13 @@
                         android:id="@+id/etxtIcedChocolate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:clickable="false"
                         android:ems="2"
                         android:enabled="false"
                         android:gravity="end|center_vertical"
                         android:hint="@string/qty"
                         android:inputType="number"
+                        android:maxLength="1"
                         android:text="@string/qty_1"
                         android:visibility="invisible" />
                 </LinearLayout>
@@ -428,13 +427,13 @@
                         android:id="@+id/etxtIcedVanillaCappuccino"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:clickable="false"
                         android:ems="2"
                         android:enabled="false"
                         android:gravity="end|center_vertical"
                         android:hint="@string/qty"
                         android:inputType="number"
+                        android:maxLength="1"
                         android:text="@string/qty_1"
                         android:visibility="invisible" />
                 </LinearLayout>
@@ -458,13 +457,13 @@
                         android:id="@+id/etxtIcedChai"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:clickable="false"
                         android:ems="2"
                         android:enabled="false"
                         android:gravity="end|center_vertical"
                         android:hint="@string/qty"
                         android:inputType="number"
+                        android:maxLength="1"
                         android:text="@string/qty_1"
                         android:visibility="invisible" />
                 </LinearLayout>
@@ -512,13 +511,13 @@
                         android:id="@+id/etxtFrenchVanillaChiller"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:clickable="false"
                         android:ems="2"
                         android:enabled="false"
                         android:gravity="end|center_vertical"
                         android:hint="@string/qty"
                         android:inputType="number"
+                        android:maxLength="1"
                         android:text="@string/qty_1"
                         android:visibility="invisible" />
                 </LinearLayout>
@@ -542,13 +541,13 @@
                         android:id="@+id/etxtCaramelChiller"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:clickable="false"
                         android:ems="2"
                         android:enabled="false"
                         android:gravity="end|center_vertical"
                         android:hint="@string/qty"
                         android:inputType="number"
+                        android:maxLength="1"
                         android:text="@string/qty_1"
                         android:visibility="invisible" />
                 </LinearLayout>
@@ -591,13 +590,13 @@
                         android:id="@+id/etxtFrenchVanillaCappuccino"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:clickable="false"
                         android:ems="2"
                         android:enabled="false"
                         android:gravity="end|center_vertical"
                         android:hint="@string/qty"
                         android:inputType="number"
+                        android:maxLength="1"
                         android:text="@string/qty_1"
                         android:visibility="invisible" />
                 </LinearLayout>
@@ -621,13 +620,13 @@
                         android:id="@+id/etxtCaramelMacchiatoCappuccino"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:clickable="false"
                         android:ems="2"
                         android:enabled="false"
                         android:gravity="end|center_vertical"
                         android:hint="@string/qty"
                         android:inputType="number"
+                        android:maxLength="1"
                         android:text="@string/qty_1"
                         android:visibility="invisible" />
                 </LinearLayout>
@@ -651,13 +650,13 @@
                         android:id="@+id/etxtHotChocolate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:clickable="false"
                         android:ems="2"
                         android:enabled="false"
                         android:gravity="end|center_vertical"
                         android:hint="@string/qty"
                         android:inputType="number"
+                        android:maxLength="1"
                         android:text="@string/qty_1"
                         android:visibility="invisible" />
                 </LinearLayout>
@@ -682,13 +681,13 @@
                         android:id="@+id/etxtChaiTea"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:clickable="false"
                         android:ems="2"
                         android:enabled="false"
                         android:gravity="end|center_vertical"
                         android:hint="@string/qty"
                         android:inputType="number"
+                        android:maxLength="1"
                         android:text="@string/qty_1"
                         android:visibility="invisible" />
                 </LinearLayout>
@@ -712,13 +711,13 @@
                         android:id="@+id/etxtAppleCider"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:clickable="false"
                         android:ems="2"
                         android:enabled="false"
                         android:gravity="end|center_vertical"
                         android:hint="@string/qty"
                         android:inputType="number"
+                        android:maxLength="1"
                         android:text="@string/qty_1"
                         android:visibility="invisible" />
                 </LinearLayout>
@@ -761,13 +760,13 @@
                         android:id="@+id/etxtGreenTea"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:clickable="false"
                         android:ems="2"
                         android:enabled="false"
                         android:gravity="end|center_vertical"
                         android:hint="@string/qty"
                         android:inputType="number"
+                        android:maxLength="1"
                         android:text="@string/qty_1"
                         android:visibility="invisible" />
                 </LinearLayout>
@@ -792,13 +791,13 @@
                         android:id="@+id/etxtHighlanderGrogg"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:clickable="false"
                         android:ems="2"
                         android:enabled="false"
                         android:gravity="end|center_vertical"
                         android:hint="@string/qty"
                         android:inputType="number"
+                        android:maxLength="1"
                         android:text="@string/qty_1"
                         android:visibility="invisible" />
                 </LinearLayout>
@@ -822,13 +821,13 @@
                         android:id="@+id/etxtDecafCoffee"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:clickable="false"
                         android:ems="2"
                         android:enabled="false"
                         android:gravity="end|center_vertical"
                         android:hint="@string/qty"
                         android:inputType="number"
+                        android:maxLength="1"
                         android:text="@string/qty_1"
                         android:visibility="invisible" />
                 </LinearLayout>
@@ -853,13 +852,13 @@
                         android:id="@+id/etxtRegularCoffee"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:clickable="false"
                         android:ems="2"
                         android:enabled="false"
                         android:gravity="end|center_vertical"
                         android:hint="@string/qty"
                         android:inputType="number"
+                        android:maxLength="1"
                         android:text="@string/qty_1"
                         android:visibility="invisible" />
                 </LinearLayout>
@@ -883,13 +882,13 @@
                         android:id="@+id/etxtHazelnutCoffee"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:clickable="false"
                         android:ems="2"
                         android:enabled="false"
                         android:gravity="end|center_vertical"
                         android:hint="@string/qty"
                         android:inputType="number"
+                        android:maxLength="1"
                         android:text="@string/qty_1"
                         android:visibility="invisible" />
                 </LinearLayout>
@@ -938,13 +937,13 @@
                         android:id="@+id/etxtApple"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:clickable="false"
                         android:ems="2"
                         android:enabled="false"
                         android:gravity="end|center_vertical"
                         android:hint="@string/qty"
                         android:inputType="number"
+                        android:maxLength="1"
                         android:text="@string/qty_1"
                         android:visibility="invisible" />
                 </LinearLayout>
@@ -974,6 +973,7 @@
                         android:gravity="end|center_vertical"
                         android:hint="@string/qty"
                         android:inputType="number"
+                        android:maxLength="1"
                         android:text="@string/qty_1"
                         android:visibility="invisible" />
                 </LinearLayout>
@@ -1003,6 +1003,7 @@
                         android:gravity="end|center_vertical"
                         android:hint="@string/qty"
                         android:inputType="number"
+                        android:maxLength="1"
                         android:text="@string/qty_1"
                         android:visibility="invisible" />
                 </LinearLayout>

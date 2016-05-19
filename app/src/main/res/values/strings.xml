@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Kokopelli Order Form</string>
-    <string name="new_order">New Order</string>
+    <string name="new_order">NEW ORDER</string>
     <string name="welcome_subtitle">Warm your belly with Kokopelli</string>
     <string name="welcome_message">Welcome</string>
-    <string name="favorites">Favorites</string>
+    <string name="favorites">FAVORITES</string>
     <string name="itemInQuestion">ChangeThisWhenNewItemIsSelected</string>
     <string name="name_hint">Name (required)</string>
     <string name="id_hint">Student ID (required)</string>
@@ -54,4 +54,6 @@
     <string name="banana">Banana</string>
     <string name="orange">Orange</string>
     <string name="submit">SUBMIT</string>
+    <string name="sign_out">SIGN OUT</string>
+    <string name="remove_account">REMOVE ACCOUNT</string>
 </resources>

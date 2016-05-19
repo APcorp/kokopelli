@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "577523948508",
+    "project_id": "kokopelli-order-form"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:577523948508:android:3fd587b05b56871a",
+        "android_client_info": {
+          "package_name": "comapcorp.github.kokopelliorderform"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "577523948508-ht1c65sqn5pbnfjni7o1drfa5v6aej8p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "comapcorp.github.kokopelliorderform",
+            "certificate_hash": "C03B8193AC2A1EE4ED8AA55E8A448F25D598C8B2"
+          }
+        },
+        {
+          "client_id": "577523948508-3ns1al7go815u6kpf2659p0kas6u4c1e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuXAIO-duzpLrso347eXpUTI_JooHmUdQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
