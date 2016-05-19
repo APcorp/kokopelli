@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -16,15 +15,16 @@ import java.util.ArrayList;
 import java.util.Formatter;
 import java.util.HashMap;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    String name;
-    String id;
+    String mName;
+    String mId;
+    String mEmail;
+    TextView txtName;
+    TextView txtId;
+    TextView txtEmail;
 
-    EditText etxtName;
-    EditText etxtId;
-
-    Button btnOrder;
+    // Button btnOrder;
 
     ArrayList<OrderedItem> cart;
     HashMap<String, Double> prices;
@@ -46,16 +46,34 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // initializing the order button and the EditTexts that allow the user to input their name
-        // and id
-        btnOrder = (Button) findViewById(R.id.btnOrder);
-        etxtName = (EditText) findViewById(R.id.etxtName);
-        etxtId = (EditText) findViewById(R.id.etxtId);
+        // getting the intent from the Welcome Activity that contains the user's name, id, and email
+        Intent intent = getIntent();
 
-        // initializes the name and ids to whatever is in the EditTexts for name and id. Usually
-        // it's nothing
-        name = etxtName.getText().toString();
-        id = etxtId.getText().toString();
+        // initializing the order button and the TextViews that display the user's name, id, and email
+        txtName = (TextView) findViewById(R.id.txtName);
+        txtId = (TextView) findViewById(R.id.txtId);
+        txtEmail = (TextView) findViewById(R.id.txtEmail);
+
+        // loading the information from the Intent into the corresponding strings
+        mName = intent.getStringExtra("name");
+        mId = intent.getStringExtra("id");
+        mEmail = intent.getStringExtra("email");
+
+        // initializes the name and ids to whatever was sent from the previous activity in the Intent.
+        // The information is retrieved from the user's Google account
+        String name = "Name: " + mName;
+        String id = "ID: " + mId;
+        String email = mEmail;
+
+        txtName.setText(name);
+        txtId.setText(id);
+        txtEmail.setText(email);
+
+        // sets OnClickListener for the buttons in this Activity - Order and Favorite - so that when
+        // they are clicked, the correct action is done
+        findViewById(R.id.btnOrder).setOnClickListener(this);
+        findViewById(R.id.btnFavOrder).setOnClickListener(this);
+
 
         // initializes our cart, menu of prices, and the data structure for all our quantity boxes
         cart = new ArrayList<>();
@@ -148,7 +166,8 @@ public class MainActivity extends AppCompatActivity {
         boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtBanana), getString(R.string.banana)));
         boxes.add(new QuantityBox((EditText) findViewById(R.id.etxtOrange), getString(R.string.orange)));
 
-
+        /*
+        Commenting this out for now since the name should be immutable
         // adding text changed listener for the name etxt so that when the user changes the name
         // we know, and we can reset the name String
         etxtName.addTextChangedListener(new TextWatcher() {
@@ -168,7 +187,9 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        */
 
+        /* commenting this out for now since the id is immutable
         // adding text changed listener for the id etxt so that we can reset the id to what they
         // enter
         etxtId.addTextChangedListener(new TextWatcher() {
@@ -188,6 +209,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        */
 
         // adding text changed listener for every quantity box next to every single item. fingers
         // crossed, hope this works
@@ -317,57 +339,9 @@ public class MainActivity extends AppCompatActivity {
         //enableButton();
     }
 
-    /**
-     * <b>summary: </b>is called when the order button on the activity is clicked. checks to make
-     * sure that the name and id are entered. Also ensures that an item is ordered. If all these
-     * conditions are met, the method starts a new Intent containing all the relevant information
-     * on the page: name, id, and items ordered
-     *
-     * @param v default parameter
-     */
+
     public void goToCheckout(View v) {
-        boolean nameEntered = !name.trim().equals("");
-        boolean idEntered = !id.equals("");
-        boolean cartReady = cart.size() != 0;
 
-
-        boolean readyForCheckout = nameEntered && idEntered && cartReady;
-
-        if (readyForCheckout) {
-            Intent intent = new Intent(getApplicationContext(), FinalActivity.class);
-
-            intent.putExtra("Name", name);
-            intent.putExtra("ID", id);
-
-            intent.putExtra("Total", price);
-
-            for (int i = 0; i < cart.size(); ++i) {
-                System.out.println(cart.get(i).getItemName());
-            }
-
-            intent.putParcelableArrayListExtra("cart", cart);
-
-            startActivity(intent);
-        } else {
-            if (!(nameEntered || idEntered || cartReady))
-                Toast.makeText(getApplicationContext(), "You need to enter your name and id and order an item!", Toast.LENGTH_SHORT).show();
-            else {
-                if (!(nameEntered || idEntered))
-                    Toast.makeText(getApplicationContext(), "You need to enter your name and id!", Toast.LENGTH_SHORT).show();
-                else if (!(nameEntered || cartReady))
-                    Toast.makeText(getApplicationContext(), "You need to enter your name and order an item!", Toast.LENGTH_SHORT).show();
-                else if (!(idEntered || cartReady))
-                    Toast.makeText(getApplicationContext(), "You need to enter your id and order an item!", Toast.LENGTH_SHORT).show();
-                else {
-                    if (!nameEntered)
-                        Toast.makeText(getApplicationContext(), "You need to enter your name!", Toast.LENGTH_SHORT).show();
-                    else if (!idEntered)
-                        Toast.makeText(getApplicationContext(), "You need to enter you id!", Toast.LENGTH_SHORT).show();
-                    else if (!cartReady)
-                        Toast.makeText(getApplicationContext(), "You need to order an item!", Toast.LENGTH_SHORT).show();
-                }
-            }
-        }
     }
 
     /**
@@ -463,5 +437,78 @@ public class MainActivity extends AppCompatActivity {
         }
 
         calculatePrice();
+    }
+
+    /**
+     * <b>summary: </b>handles the clicking of all the buttons in this activity. There are only two:
+     * Order and Add Favorite
+     *
+     * @param v
+     */
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btnOrder:
+                goToCheckout();
+                break;
+            case R.id.btnFavOrder:
+                storeFavorite();
+                break;
+        }
+    }
+
+    /**
+     * <b>summary: </b>is called when the order button on the activity is clicked. checks to make
+     * sure that the name and id are entered. Also ensures that an item is ordered. If all these
+     * conditions are met, the method starts a new Intent containing all the relevant information
+     * on the page: name, id, and items ordered
+     */
+    private void goToCheckout() {
+        boolean nameEntered = !mName.trim().equals("");
+        boolean idEntered = !mId.equals("");
+        boolean cartReady = cart.size() != 0;
+
+
+        boolean readyForCheckout = nameEntered && idEntered && cartReady;
+
+        if (readyForCheckout) {
+            Intent intent = new Intent(getApplicationContext(), FinalActivity.class);
+
+            intent.putExtra("name", mName);
+            intent.putExtra("id", mId);
+            intent.putExtra("email", mEmail);
+
+            intent.putExtra("Total", price);
+
+            for (int i = 0; i < cart.size(); ++i) {
+                System.out.println(cart.get(i).getItemName());
+            }
+
+            intent.putParcelableArrayListExtra("cart", cart);
+
+            startActivity(intent);
+        } else {
+            if (!(nameEntered || idEntered || cartReady))
+                Toast.makeText(getApplicationContext(), "You need to enter your name and id and order an item!", Toast.LENGTH_SHORT).show();
+            else {
+                if (!(nameEntered || idEntered))
+                    Toast.makeText(getApplicationContext(), "You need to enter your name and id!", Toast.LENGTH_SHORT).show();
+                else if (!(nameEntered || cartReady))
+                    Toast.makeText(getApplicationContext(), "You need to enter your name and order an item!", Toast.LENGTH_SHORT).show();
+                else if (!(idEntered || cartReady))
+                    Toast.makeText(getApplicationContext(), "You need to enter your id and order an item!", Toast.LENGTH_SHORT).show();
+                else {
+                    if (!nameEntered)
+                        Toast.makeText(getApplicationContext(), "You need to enter your name!", Toast.LENGTH_SHORT).show();
+                    else if (!idEntered)
+                        Toast.makeText(getApplicationContext(), "You need to enter you id!", Toast.LENGTH_SHORT).show();
+                    else
+                        Toast.makeText(getApplicationContext(), "You need to order an item!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+    }
+
+    private void storeFavorite() {
+
     }
 }

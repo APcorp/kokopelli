@@ -2,16 +2,16 @@
 
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:clickable="false"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/linWelcomeStuff"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -26,36 +26,76 @@
             android:layout_height="wrap_content"
             android:text="@string/welcome_subtitle"
             android:textAppearance="?android:textAppearanceLarge" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:textAppearanceLarge" />
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/btnSignIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
     </LinearLayout>
 
-
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/linOptions"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:visibility="gone">
 
-        <Button
-            android:id="@+id/btnNew"
-            style="?android:buttonBarButtonStyle"
+
+        <TextView
+            android:id="@+id/txtWelcomeUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Placeholder"
+            android:textAppearance="?android:textAppearanceLarge" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btnNewOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            android:onClick="goToMain"
+            android:padding="16dp"
             android:text="@string/new_order"
             android:textAppearance="?android:textAppearanceLarge"
             android:textColor="@android:color/white" />
 
         <Button
-            android:id="@+id/btnFav"
-            style="?android:buttonBarButtonStyle"
+            android:id="@+id/btnFavorites"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:background="@color/colorPrimary"
-            android:onClick="goToFavorites"
+            android:padding="16dp"
             android:text="@string/favorites"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btnSignOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:padding="16dp"
+            android:text="@string/sign_out"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btnRemoveAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:padding="16dp"
+            android:text="@string/remove_account"
             android:textAppearance="?android:textAppearanceLarge"
             android:textColor="@android:color/white" />
 
