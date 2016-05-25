@@ -339,11 +339,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //enableButton();
     }
 
-
-    public void goToCheckout(View v) {
-
-    }
-
     /**
      * <b>summary: </b>goes through all items in the cart, finds their prices and quantities,
      * then sums everything together. Stores the data in the global "price" variable
