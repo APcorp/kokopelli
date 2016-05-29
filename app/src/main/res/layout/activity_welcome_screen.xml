@@ -89,16 +89,6 @@
             android:textAppearance="?android:textAppearanceLarge"
             android:textColor="@android:color/white" />
 
-        <Button
-            android:id="@+id/btnRemoveAccount"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:padding="16dp"
-            android:text="@string/remove_account"
-            android:textAppearance="?android:textAppearanceLarge"
-            android:textColor="@android:color/white" />
-
 
     </LinearLayout>
 

@@ -16,6 +16,7 @@ public class FinalActivity extends AppCompatActivity implements View.OnClickList
     private String mName;
     private String mId;
     private String mEmail;
+    private String emailBody;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,20 +32,24 @@ public class FinalActivity extends AppCompatActivity implements View.OnClickList
 
         // initializes the TextViews that contain the user's name, id, and email
         TextView txtFinalName = (TextView) findViewById(R.id.finalName);
-        TextView txtFinalId = (TextView) findViewById(R.id.finalId);
+        //TextView txtFinalId = (TextView) findViewById(R.id.finalId);
         TextView txtFinalEmail = (TextView) findViewById(R.id.finalEmail);
 
         mName = intent.getStringExtra("name");
-        mId = intent.getStringExtra("id");
+        //mId = intent.getStringExtra("id");
         mEmail = intent.getStringExtra("email");
         // sets the relevant strings on the summary with the correct name and id and stuff
-        String name= "Name: " + mName;
-        String id = "ID: " + mId;
+        String name = "Name: " + mName;
+        //String id = "ID: " + mId;
         String email = mEmail;
 
         txtFinalName.setText(name);
-        txtFinalId.setText(id);
+        // txtFinalId.setText(id);
         txtFinalEmail.setText(email);
+
+        emailBody = name + "\n";
+
+        emailBody += "Email: " + email + "\n\n";
 
         ArrayList<OrderedItem> cart = intent.getParcelableArrayListExtra("cart");
 
@@ -58,6 +63,7 @@ public class FinalActivity extends AppCompatActivity implements View.OnClickList
 
         // automatically generates a list of everything that the user had checked on the previous
         // page
+
         for (int i = 0; i < size; ++i) {
 
             LinearLayout tempLayout = new LinearLayout(this);
@@ -83,9 +89,12 @@ public class FinalActivity extends AppCompatActivity implements View.OnClickList
             itemQuantity.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
 
             tempLayout.addView(itemQuantity);
-            if (parentLin != null) parentLin.addView(tempLayout);
+            parentLin.addView(tempLayout);
+
+            emailBody += cart.get(i).getItemName() + "\t" + cart.get(i).getQuantity() + "\n";
 
         }
+
 
 
         TextView total = (TextView) findViewById(R.id.txtFinalTotal);
@@ -94,7 +103,9 @@ public class FinalActivity extends AppCompatActivity implements View.OnClickList
 
         format.format("$%.2f", intent.getDoubleExtra("Total", 0.00));
 
-        if (total != null) total.setText(format.toString());
+        total.setText(format.toString());
+
+        emailBody += "\n" + "Total: " + format.toString();
     }
 
     /**
@@ -116,12 +127,13 @@ public class FinalActivity extends AppCompatActivity implements View.OnClickList
      * the user and an order for Kokopelli
      */
     private void sendEmail() {
-
+        Intent info = getIntent();
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:"));
-        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{mEmail});
-        intent.putExtra(Intent.EXTRA_SUBJECT, "test");
-        intent.putExtra(Intent.EXTRA_TEXT, "this is a test message");
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"kokopelliorderform@gmail.com"});
+        intent.putExtra(Intent.EXTRA_CC, new String[]{mEmail});
+        intent.putExtra(Intent.EXTRA_SUBJECT, mName + "'s " + "Order");
+        intent.putExtra(Intent.EXTRA_TEXT, emailBody);
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }

@@ -26,13 +26,6 @@
                 android:textAppearance="?android:textAppearanceLarge" />
 
             <TextView
-                android:id="@+id/finalId"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Placeholder"
-                android:textAppearance="?android:textAppearanceLarge" />
-
-            <TextView
                 android:id="@+id/finalEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

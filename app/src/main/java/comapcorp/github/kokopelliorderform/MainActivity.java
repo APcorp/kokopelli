@@ -49,24 +49,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // getting the intent from the Welcome Activity that contains the user's name, id, and email
         Intent intent = getIntent();
 
-        // initializing the order button and the TextViews that display the user's name, id, and email
+        // initializing the order button and the TextViews that display the user's name and email
         txtName = (TextView) findViewById(R.id.txtName);
-        txtId = (TextView) findViewById(R.id.txtId);
         txtEmail = (TextView) findViewById(R.id.txtEmail);
 
         // loading the information from the Intent into the corresponding strings
         mName = intent.getStringExtra("name");
-        mId = intent.getStringExtra("id");
         mEmail = intent.getStringExtra("email");
 
         // initializes the name and ids to whatever was sent from the previous activity in the Intent.
         // The information is retrieved from the user's Google account
         String name = "Name: " + mName;
-        String id = "ID: " + mId;
         String email = mEmail;
 
         txtName.setText(name);
-        txtId.setText(id);
         txtEmail.setText(email);
 
         // sets OnClickListener for the buttons in this Activity - Order and Favorite - so that when
@@ -458,14 +454,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * on the page: name, id, and items ordered
      */
     private void goToCheckout() {
-        boolean nameEntered = !mName.trim().equals("");
-        boolean idEntered = !mId.equals("");
+        //boolean nameEntered = !mName.trim().equals("");
         boolean cartReady = cart.size() != 0;
 
-
-        boolean readyForCheckout = nameEntered && idEntered && cartReady;
-
-        if (readyForCheckout) {
+        if (cartReady) {
             Intent intent = new Intent(getApplicationContext(), FinalActivity.class);
 
             intent.putExtra("name", mName);
@@ -481,29 +473,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent.putParcelableArrayListExtra("cart", cart);
 
             startActivity(intent);
-        } else {
-            if (!(nameEntered || idEntered || cartReady))
-                Toast.makeText(getApplicationContext(), "You need to enter your name and id and order an item!", Toast.LENGTH_SHORT).show();
-            else {
-                if (!(nameEntered || idEntered))
-                    Toast.makeText(getApplicationContext(), "You need to enter your name and id!", Toast.LENGTH_SHORT).show();
-                else if (!(nameEntered || cartReady))
-                    Toast.makeText(getApplicationContext(), "You need to enter your name and order an item!", Toast.LENGTH_SHORT).show();
-                else if (!(idEntered || cartReady))
-                    Toast.makeText(getApplicationContext(), "You need to enter your id and order an item!", Toast.LENGTH_SHORT).show();
-                else {
-                    if (!nameEntered)
-                        Toast.makeText(getApplicationContext(), "You need to enter your name!", Toast.LENGTH_SHORT).show();
-                    else if (!idEntered)
-                        Toast.makeText(getApplicationContext(), "You need to enter you id!", Toast.LENGTH_SHORT).show();
-                    else
-                        Toast.makeText(getApplicationContext(), "You need to order an item!", Toast.LENGTH_SHORT).show();
-                }
-            }
-        }
+        } else
+            Toast.makeText(getApplicationContext(), "You need select at least one item!", Toast.LENGTH_SHORT);
     }
 
     private void storeFavorite() {
+
 
     }
 }
