@@ -315,24 +315,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (cbx.isChecked()) {
 
-            if (!cart.contains(new OrderedItem(cbx.getText().toString(), 1))) {
+            if (!cart.contains(new OrderedItem(cbx.getText().toString(), 1, 0))) {
                 EditText temp = (EditText) findViewById(cbx.getNextFocusRightId());
 
                 if (temp != null)
-                    cart.add(new OrderedItem(cbx.getText().toString(), Integer.parseInt(temp.getText().toString())));
+                    cart.add(new OrderedItem(cbx.getText().toString(),
+                            Integer.parseInt(temp.getText().toString()),
+                            prices.get(cbx.getText().toString())));
             }
 
 
             setQuantityVisibility(cbx, View.VISIBLE, true);
         } else {
 
-            remove(new OrderedItem(cbx.getText().toString(), 1));
+            remove(new OrderedItem(cbx.getText().toString(), 1, 0));
 
             setQuantityVisibility(cbx, View.INVISIBLE, false);
         }
 
         calculatePrice();
-        //enableButton();
     }
 
     /**
@@ -343,7 +344,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         price = 0;
 
         for (OrderedItem i : cart) {
-            price += prices.get(i.getItemName()) * i.getQuantity();
+            price += i.getUnitPrice() * i.getQuantity();
         }
 
         Formatter format = new Formatter();
@@ -420,7 +421,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     private void updateQuantity(CharSequence s, String itemName) {
         if (!s.toString().contains("-") && !s.toString().equals("")) {
-            int index = find(new OrderedItem(itemName, 1));
+            int index = find(new OrderedItem(itemName, 1, 0));
 
             if (index > -1) {
                 cart.get(index).setQuantity(Integer.parseInt(s.toString()));
@@ -441,9 +442,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnOrder:
                 goToCheckout();
                 break;
-            case R.id.btnFavOrder:
-                storeFavorite();
-                break;
+            //case R.id.btnFavOrder:
+            //  storeFavorite();
+            // break;
         }
     }
 
@@ -474,11 +475,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             startActivity(intent);
         } else
-            Toast.makeText(getApplicationContext(), "You need select at least one item!", Toast.LENGTH_SHORT);
-    }
-
-    private void storeFavorite() {
-
-
+            Toast.makeText(getApplicationContext(), "You need select at least one item!", Toast.LENGTH_SHORT).show();
     }
 }

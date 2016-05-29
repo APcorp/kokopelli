@@ -17,9 +17,9 @@
     <string name="qty_1">1</string>
     <string name="smoothie">Smoothies ($2.00)</string>
     <string name="smoothie_description">Fruit and yogurt blended with milk</string>
-    <string name="strawberry_smoothie">Strawberry</string>
-    <string name="mixed_berry_smoothie">Mixed Berry</string>
-    <string name="tropical_fruit_smoothie">Tropical Fruit</string>
+    <string name="strawberry_smoothie">Strawberry Smoothie</string>
+    <string name="mixed_berry_smoothie">Mixed Berry Smoothie</string>
+    <string name="tropical_fruit_smoothie">Tropical Fruit Smoothie</string>
     <string name="iced_drinks">Iced Drinks ($2.00)</string>
     <string name="iced_drinks_description">Cappuccino blended with milk and ice</string>
     <string name="iced_caramel">Iced Caramel</string>

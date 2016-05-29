@@ -59,11 +59,12 @@ public class FinalActivity extends AppCompatActivity implements View.OnClickList
 
         int size = 0;
 
-        if (cart != null) size = cart.size();
+        size = cart.size();
 
         // automatically generates a list of everything that the user had checked on the previous
         // page
 
+        emailBody += "Products Ordered:\n\n";
         for (int i = 0; i < size; ++i) {
 
             LinearLayout tempLayout = new LinearLayout(this);
@@ -91,12 +92,11 @@ public class FinalActivity extends AppCompatActivity implements View.OnClickList
             tempLayout.addView(itemQuantity);
             parentLin.addView(tempLayout);
 
-            emailBody += cart.get(i).getItemName() + "\t" + cart.get(i).getQuantity() + "\n";
+            emailBody += cart.get(i).getItemName() + ": " + cart.get(i).getQuantity() + " ($" + new Formatter().format("%.2f", cart.get(i).getUnitPrice()).toString() + "/unit)" + "\n";
 
         }
 
-
-
+        emailBody += "\nEND OF ORDER\n";
         TextView total = (TextView) findViewById(R.id.txtFinalTotal);
 
         Formatter format = new Formatter();
