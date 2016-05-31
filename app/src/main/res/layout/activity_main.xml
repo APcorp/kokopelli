@@ -7,13 +7,13 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="16dp">
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp">
 
             <TextView
                 android:id="@+id/txtName"
@@ -21,11 +21,6 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceLarge" />
 
-            <TextView
-                android:id="@+id/txtId"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:textAppearanceLarge" />
 
             <TextView
                 android:id="@+id/txtEmail"
@@ -1016,10 +1011,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#8D6E63"
         android:gravity="center_vertical"
-        android:paddingBottom="16dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
+        android:padding="16dp">
 
         <TextView
             android:layout_width="0dp"
@@ -1027,6 +1021,7 @@
             android:layout_weight="1"
             android:text="@string/total"
             android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@android:color/white"
             android:textStyle="bold" />
 
         <TextView
@@ -1034,7 +1029,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/price"
-            android:textAppearance="?android:textAppearanceLarge" />
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@android:color/white" />
     </LinearLayout>
 
     <LinearLayout
@@ -1053,21 +1049,6 @@
             android:enabled="true"
             android:onClick="goToCheckout"
             android:text="@string/order"
-            android:textAppearance="?android:textAppearanceLarge"
-            android:textColor="@android:color/white" />
-
-        <Button
-            android:id="@+id/btnFavOrder"
-            style="?android:buttonBarButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:clickable="true"
-            android:enabled="true"
-            android:onClick="goToCheckout"
-            android:text="@string/favorite_order"
             android:textAppearance="?android:textAppearanceLarge"
             android:textColor="@android:color/white" />
     </LinearLayout>

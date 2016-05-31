@@ -7,34 +7,43 @@ import android.os.Parcelable;
  * Created by Theodore on 5/8/16.
  */
 public class OrderedItem implements Comparable<OrderedItem>, Parcelable {
-    private String itemName;
-    private int quantity;
+    private String mItemName;
+    private int mQuantity;
+    private double mUnitPrice;
 
 
-    public OrderedItem(String name, int quantity) {
-        itemName = name;
-        this.quantity = quantity;
-
+    public OrderedItem(String itemName, int quantity, double unitPrice) {
+        mItemName = itemName;
+        mQuantity = quantity;
+        mUnitPrice = unitPrice;
     }
 
     public String getItemName() {
-        return itemName;
+        return mItemName;
     }
 
     public int getQuantity() {
-        return quantity;
+        return mQuantity;
     }
 
-    public void setItemName(String newName) {
-        itemName = newName;
+    public double getUnitPrice() {
+        return mUnitPrice;
     }
 
-    public void setQuantity(int newQuantity) {
-        quantity = newQuantity;
+    public void setItemName(String itemName) {
+        mItemName = itemName;
+    }
+
+    public void setQuantity(int quantity) {
+        mQuantity = quantity;
+    }
+
+    public void setUnitPrice(double unitPrice) {
+        mUnitPrice = unitPrice;
     }
 
     public int compareTo(OrderedItem other) {
-        return itemName.compareTo(other.getItemName());
+        return mItemName.compareTo(other.getItemName());
     }
 
     public boolean equals(OrderedItem other) {
@@ -46,8 +55,9 @@ public class OrderedItem implements Comparable<OrderedItem>, Parcelable {
     }
 
     public void writeToParcel(Parcel out, int flags) {
-        out.writeString(itemName);
-        out.writeInt(quantity);
+        out.writeString(mItemName);
+        out.writeInt(mQuantity);
+        out.writeDouble(mUnitPrice);
     }
 
     public static final Parcelable.Creator<OrderedItem> CREATOR = new Parcelable.Creator<OrderedItem>() {
@@ -61,7 +71,8 @@ public class OrderedItem implements Comparable<OrderedItem>, Parcelable {
     };
 
     private OrderedItem(Parcel in) {
-        this.itemName = in.readString();
-        this.quantity = in.readInt();
+        mItemName = in.readString();
+        mQuantity = in.readInt();
+        mUnitPrice = in.readDouble();
     }
 }

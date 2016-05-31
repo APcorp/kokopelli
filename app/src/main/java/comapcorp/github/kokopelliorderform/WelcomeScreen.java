@@ -39,8 +39,7 @@ public class WelcomeScreen extends AppCompatActivity implements GoogleApiClient.
         findViewById(R.id.btnSignIn).setOnClickListener(this);
         findViewById(R.id.btnSignOut).setOnClickListener(this);
         findViewById(R.id.btnNewOrder).setOnClickListener(this);
-        findViewById(R.id.btnFavorites).setOnClickListener(this);
-        findViewById(R.id.btnRemoveAccount).setOnClickListener(this);
+        //findViewById(R.id.btnFavorites).setOnClickListener(this);
 
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
@@ -92,11 +91,11 @@ public class WelcomeScreen extends AppCompatActivity implements GoogleApiClient.
                     index = i;
             }
 
-            if (mEmail.substring(index + 1).equals("waunakeecsd.org")) {
+            if (mEmail.substring(index + 1).equals("waunakeecsd.org") || mEmail.substring(index + 1).equals("waunakee.k12.wi.us")) {
                 updateUI(true);
             } else {
                 signOut();
-                Toast.makeText(getApplicationContext(), "You need to use your school gmail! You can add " +
+                Toast.makeText(getApplicationContext(), "You need to use your school email! You can add " +
                         "additional accounts by clicking \"Add account\"", Toast.LENGTH_LONG).show();
             }
             // mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
@@ -204,15 +203,12 @@ public class WelcomeScreen extends AppCompatActivity implements GoogleApiClient.
             case R.id.btnSignOut:
                 signOut();
                 break;
-            case R.id.btnRemoveAccount:
-                revokeAccess();
-                break;
             case R.id.btnNewOrder:
                 goToMain();
                 break;
-            case R.id.btnFavorites:
+            /*case R.id.btnFavorites:
                 goToFavorites();
-                break;
+                break;*/
         }
     }
 

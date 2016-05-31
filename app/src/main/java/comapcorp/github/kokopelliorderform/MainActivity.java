@@ -49,30 +49,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // getting the intent from the Welcome Activity that contains the user's name, id, and email
         Intent intent = getIntent();
 
-        // initializing the order button and the TextViews that display the user's name, id, and email
+        // initializing the order button and the TextViews that display the user's name and email
         txtName = (TextView) findViewById(R.id.txtName);
-        txtId = (TextView) findViewById(R.id.txtId);
         txtEmail = (TextView) findViewById(R.id.txtEmail);
 
         // loading the information from the Intent into the corresponding strings
         mName = intent.getStringExtra("name");
-        mId = intent.getStringExtra("id");
         mEmail = intent.getStringExtra("email");
 
         // initializes the name and ids to whatever was sent from the previous activity in the Intent.
         // The information is retrieved from the user's Google account
         String name = "Name: " + mName;
-        String id = "ID: " + mId;
         String email = mEmail;
 
         txtName.setText(name);
-        txtId.setText(id);
         txtEmail.setText(email);
 
         // sets OnClickListener for the buttons in this Activity - Order and Favorite - so that when
         // they are clicked, the correct action is done
         findViewById(R.id.btnOrder).setOnClickListener(this);
-        findViewById(R.id.btnFavOrder).setOnClickListener(this);
+        //findViewById(R.id.btnFavOrder).setOnClickListener(this);
 
 
         // initializes our cart, menu of prices, and the data structure for all our quantity boxes
@@ -319,24 +315,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (cbx.isChecked()) {
 
-            if (!cart.contains(new OrderedItem(cbx.getText().toString(), 1))) {
+            if (!cart.contains(new OrderedItem(cbx.getText().toString(), 1, 0))) {
                 EditText temp = (EditText) findViewById(cbx.getNextFocusRightId());
 
                 if (temp != null)
-                    cart.add(new OrderedItem(cbx.getText().toString(), Integer.parseInt(temp.getText().toString())));
+                    cart.add(new OrderedItem(cbx.getText().toString(),
+                            Integer.parseInt(temp.getText().toString()),
+                            prices.get(cbx.getText().toString())));
             }
 
 
             setQuantityVisibility(cbx, View.VISIBLE, true);
         } else {
 
-            remove(new OrderedItem(cbx.getText().toString(), 1));
+            remove(new OrderedItem(cbx.getText().toString(), 1, 0));
 
             setQuantityVisibility(cbx, View.INVISIBLE, false);
         }
 
         calculatePrice();
-        //enableButton();
     }
 
     /**
@@ -347,7 +344,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         price = 0;
 
         for (OrderedItem i : cart) {
-            price += prices.get(i.getItemName()) * i.getQuantity();
+            price += i.getUnitPrice() * i.getQuantity();
         }
 
         Formatter format = new Formatter();
@@ -424,7 +421,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     private void updateQuantity(CharSequence s, String itemName) {
         if (!s.toString().contains("-") && !s.toString().equals("")) {
-            int index = find(new OrderedItem(itemName, 1));
+            int index = find(new OrderedItem(itemName, 1, 0));
 
             if (index > -1) {
                 cart.get(index).setQuantity(Integer.parseInt(s.toString()));
@@ -445,9 +442,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnOrder:
                 goToCheckout();
                 break;
-            case R.id.btnFavOrder:
-                storeFavorite();
-                break;
+            //case R.id.btnFavOrder:
+            //  storeFavorite();
+            // break;
         }
     }
 
@@ -458,14 +455,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * on the page: name, id, and items ordered
      */
     private void goToCheckout() {
-        boolean nameEntered = !mName.trim().equals("");
-        boolean idEntered = !mId.equals("");
+        //boolean nameEntered = !mName.trim().equals("");
         boolean cartReady = cart.size() != 0;
 
-
-        boolean readyForCheckout = nameEntered && idEntered && cartReady;
-
-        if (readyForCheckout) {
+        if (cartReady) {
             Intent intent = new Intent(getApplicationContext(), FinalActivity.class);
 
             intent.putExtra("name", mName);
@@ -481,29 +474,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent.putParcelableArrayListExtra("cart", cart);
 
             startActivity(intent);
-        } else {
-            if (!(nameEntered || idEntered || cartReady))
-                Toast.makeText(getApplicationContext(), "You need to enter your name and id and order an item!", Toast.LENGTH_SHORT).show();
-            else {
-                if (!(nameEntered || idEntered))
-                    Toast.makeText(getApplicationContext(), "You need to enter your name and id!", Toast.LENGTH_SHORT).show();
-                else if (!(nameEntered || cartReady))
-                    Toast.makeText(getApplicationContext(), "You need to enter your name and order an item!", Toast.LENGTH_SHORT).show();
-                else if (!(idEntered || cartReady))
-                    Toast.makeText(getApplicationContext(), "You need to enter your id and order an item!", Toast.LENGTH_SHORT).show();
-                else {
-                    if (!nameEntered)
-                        Toast.makeText(getApplicationContext(), "You need to enter your name!", Toast.LENGTH_SHORT).show();
-                    else if (!idEntered)
-                        Toast.makeText(getApplicationContext(), "You need to enter you id!", Toast.LENGTH_SHORT).show();
-                    else
-                        Toast.makeText(getApplicationContext(), "You need to order an item!", Toast.LENGTH_SHORT).show();
-                }
-            }
-        }
-    }
-
-    private void storeFavorite() {
-
+        } else
+            Toast.makeText(getApplicationContext(), "You need select at least one item!", Toast.LENGTH_SHORT).show();
     }
 }
