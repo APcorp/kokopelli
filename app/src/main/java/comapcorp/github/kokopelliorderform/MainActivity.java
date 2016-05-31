@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // sets OnClickListener for the buttons in this Activity - Order and Favorite - so that when
         // they are clicked, the correct action is done
         findViewById(R.id.btnOrder).setOnClickListener(this);
-        findViewById(R.id.btnFavOrder).setOnClickListener(this);
+        //findViewById(R.id.btnFavOrder).setOnClickListener(this);
 
 
         // initializes our cart, menu of prices, and the data structure for all our quantity boxes

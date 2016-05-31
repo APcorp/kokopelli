@@ -21,11 +21,6 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceLarge" />
 
-            <TextView
-                android:id="@+id/txtId"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:textAppearanceLarge" />
 
             <TextView
                 android:id="@+id/txtEmail"
@@ -1054,21 +1049,6 @@
             android:enabled="true"
             android:onClick="goToCheckout"
             android:text="@string/order"
-            android:textAppearance="?android:textAppearanceLarge"
-            android:textColor="@android:color/white" />
-
-        <Button
-            android:id="@+id/btnFavOrder"
-            style="?android:buttonBarButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:clickable="true"
-            android:enabled="true"
-            android:onClick="goToCheckout"
-            android:text="@string/favorite_order"
             android:textAppearance="?android:textAppearanceLarge"
             android:textColor="@android:color/white" />
     </LinearLayout>

@@ -39,7 +39,7 @@ public class WelcomeScreen extends AppCompatActivity implements GoogleApiClient.
         findViewById(R.id.btnSignIn).setOnClickListener(this);
         findViewById(R.id.btnSignOut).setOnClickListener(this);
         findViewById(R.id.btnNewOrder).setOnClickListener(this);
-        findViewById(R.id.btnFavorites).setOnClickListener(this);
+        //findViewById(R.id.btnFavorites).setOnClickListener(this);
 
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
@@ -206,9 +206,9 @@ public class WelcomeScreen extends AppCompatActivity implements GoogleApiClient.
             case R.id.btnNewOrder:
                 goToMain();
                 break;
-            case R.id.btnFavorites:
+            /*case R.id.btnFavorites:
                 goToFavorites();
-                break;
+                break;*/
         }
     }
 
