@@ -9,14 +9,14 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="16dp">
+        android:layout_weight="1">
 
         <LinearLayout
             android:id="@+id/linFinalActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp">
 
             <TextView
                 android:id="@+id/finalName"
@@ -65,9 +65,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="16dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
+        android:background="#8D6E63"
+        android:padding="16dp">
 
         <TextView
             android:layout_width="0dp"
@@ -75,6 +74,7 @@
             android:layout_weight="1"
             android:text="Total"
             android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@android:color/white"
             android:textStyle="bold" />
 
         <TextView
@@ -82,7 +82,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="$0.00"
-            android:textAppearance="?android:textAppearanceLarge" />
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@android:color/white" />
     </LinearLayout>
 
     <Button
