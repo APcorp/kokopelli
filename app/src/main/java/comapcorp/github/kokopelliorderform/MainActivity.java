@@ -318,10 +318,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (!cart.contains(new OrderedItem(cbx.getText().toString(), 1, 0))) {
                 EditText temp = (EditText) findViewById(cbx.getNextFocusRightId());
 
-                if (temp != null)
+                if (temp != null) {
+
+                    if (!temp.getText().toString().equals(""))
                     cart.add(new OrderedItem(cbx.getText().toString(),
                             Integer.parseInt(temp.getText().toString()),
                             prices.get(cbx.getText().toString())));
+                    else
+                        cart.add(new OrderedItem(cbx.getText().toString(),
+                                1, prices.get(cbx.getText().toString())));
+                }
             }
 
 
