@@ -78,7 +78,7 @@
                         android:hint="@string/qty"
                         android:inputType="number"
                         android:maxLength="1"
-                        android:text="@string/qty_1"
+
                         android:visibility="invisible" />
                 </LinearLayout>
 
@@ -108,7 +108,7 @@
                         android:hint="@string/qty"
                         android:inputType="number"
                         android:maxLength="1"
-                        android:text="@string/qty_1"
+
                         android:visibility="invisible" />
                 </LinearLayout>
 
@@ -138,7 +138,7 @@
                         android:hint="@string/qty"
                         android:inputType="number"
                         android:maxLength="1"
-                        android:text="@string/qty_1"
+
                         android:visibility="invisible" />
                 </LinearLayout>
 
@@ -168,7 +168,7 @@
                         android:hint="@string/qty"
                         android:inputType="number"
                         android:maxLength="1"
-                        android:text="@string/qty_1"
+
                         android:visibility="invisible" />
                 </LinearLayout>
 
@@ -198,7 +198,7 @@
                         android:hint="@string/qty"
                         android:inputType="number"
                         android:maxLength="1"
-                        android:text="@string/qty_1"
+
                         android:visibility="invisible" />
                 </LinearLayout>
             </LinearLayout>
@@ -251,7 +251,7 @@
                         android:hint="@string/qty"
                         android:inputType="number"
                         android:maxLength="1"
-                        android:text="@string/qty_1"
+
                         android:visibility="invisible" />
                 </LinearLayout>
 
@@ -282,7 +282,7 @@
                         android:hint="@string/qty"
                         android:inputType="number"
                         android:maxLength="1"
-                        android:text="@string/qty_1"
+
                         android:visibility="invisible" />
                 </LinearLayout>
 
@@ -312,7 +312,7 @@
                         android:hint="@string/qty"
                         android:inputType="number"
                         android:maxLength="1"
-                        android:text="@string/qty_1"
+
                         android:visibility="invisible" />
                 </LinearLayout>
             </LinearLayout>
@@ -368,7 +368,7 @@
                         android:hint="@string/qty"
                         android:inputType="number"
                         android:maxLength="1"
-                        android:text="@string/qty_1"
+
                         android:visibility="invisible" />
                 </LinearLayout>
 
@@ -399,7 +399,7 @@
                         android:hint="@string/qty"
                         android:inputType="number"
                         android:maxLength="1"
-                        android:text="@string/qty_1"
+
                         android:visibility="invisible" />
                 </LinearLayout>
 
@@ -429,7 +429,7 @@
                         android:hint="@string/qty"
                         android:inputType="number"
                         android:maxLength="1"
-                        android:text="@string/qty_1"
+
                         android:visibility="invisible" />
                 </LinearLayout>
 
@@ -459,7 +459,7 @@
                         android:hint="@string/qty"
                         android:inputType="number"
                         android:maxLength="1"
-                        android:text="@string/qty_1"
+
                         android:visibility="invisible" />
                 </LinearLayout>
             </LinearLayout>
@@ -513,7 +513,7 @@
                         android:hint="@string/qty"
                         android:inputType="number"
                         android:maxLength="1"
-                        android:text="@string/qty_1"
+
                         android:visibility="invisible" />
                 </LinearLayout>
 
@@ -543,7 +543,7 @@
                         android:hint="@string/qty"
                         android:inputType="number"
                         android:maxLength="1"
-                        android:text="@string/qty_1"
+
                         android:visibility="invisible" />
                 </LinearLayout>
 
@@ -592,7 +592,7 @@
                         android:hint="@string/qty"
                         android:inputType="number"
                         android:maxLength="1"
-                        android:text="@string/qty_1"
+
                         android:visibility="invisible" />
                 </LinearLayout>
 
@@ -622,7 +622,7 @@
                         android:hint="@string/qty"
                         android:inputType="number"
                         android:maxLength="1"
-                        android:text="@string/qty_1"
+
                         android:visibility="invisible" />
                 </LinearLayout>
 
@@ -652,7 +652,7 @@
                         android:hint="@string/qty"
                         android:inputType="number"
                         android:maxLength="1"
-                        android:text="@string/qty_1"
+
                         android:visibility="invisible" />
                 </LinearLayout>
 
@@ -683,7 +683,7 @@
                         android:hint="@string/qty"
                         android:inputType="number"
                         android:maxLength="1"
-                        android:text="@string/qty_1"
+
                         android:visibility="invisible" />
                 </LinearLayout>
 
@@ -713,7 +713,7 @@
                         android:hint="@string/qty"
                         android:inputType="number"
                         android:maxLength="1"
-                        android:text="@string/qty_1"
+
                         android:visibility="invisible" />
                 </LinearLayout>
             </LinearLayout>
@@ -762,7 +762,7 @@
                         android:hint="@string/qty"
                         android:inputType="number"
                         android:maxLength="1"
-                        android:text="@string/qty_1"
+
                         android:visibility="invisible" />
                 </LinearLayout>
 
@@ -793,7 +793,7 @@
                         android:hint="@string/qty"
                         android:inputType="number"
                         android:maxLength="1"
-                        android:text="@string/qty_1"
+
                         android:visibility="invisible" />
                 </LinearLayout>
 
@@ -823,7 +823,7 @@
                         android:hint="@string/qty"
                         android:inputType="number"
                         android:maxLength="1"
-                        android:text="@string/qty_1"
+
                         android:visibility="invisible" />
                 </LinearLayout>
 
@@ -854,7 +854,7 @@
                         android:hint="@string/qty"
                         android:inputType="number"
                         android:maxLength="1"
-                        android:text="@string/qty_1"
+
                         android:visibility="invisible" />
                 </LinearLayout>
 
@@ -884,7 +884,7 @@
                         android:hint="@string/qty"
                         android:inputType="number"
                         android:maxLength="1"
-                        android:text="@string/qty_1"
+
                         android:visibility="invisible" />
                 </LinearLayout>
             </LinearLayout>
@@ -939,7 +939,7 @@
                         android:hint="@string/qty"
                         android:inputType="number"
                         android:maxLength="1"
-                        android:text="@string/qty_1"
+
                         android:visibility="invisible" />
                 </LinearLayout>
 
@@ -969,7 +969,7 @@
                         android:hint="@string/qty"
                         android:inputType="number"
                         android:maxLength="1"
-                        android:text="@string/qty_1"
+
                         android:visibility="invisible" />
                 </LinearLayout>
 
@@ -999,7 +999,7 @@
                         android:hint="@string/qty"
                         android:inputType="number"
                         android:maxLength="1"
-                        android:text="@string/qty_1"
+
                         android:visibility="invisible" />
                 </LinearLayout>
             </LinearLayout>
