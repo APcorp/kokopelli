@@ -72,7 +72,7 @@ public class WelcomeScreen extends AppCompatActivity implements GoogleApiClient.
      * the user-specified google account. If the sign-in is successful, then information is taken
      * from the account - name, id, and email. The buttons to order other things also shows up
      *
-     * @param result
+     * @param result GoogleSignInResult
      */
     private void handleSignInResult(GoogleSignInResult result) {
         Log.d(TAG, "handleSignInResult:" + result.isSuccess());
@@ -84,14 +84,17 @@ public class WelcomeScreen extends AppCompatActivity implements GoogleApiClient.
             mEmail = acct.getEmail();
             mId = acct.getId();
 
-            int index = -1;
+            int index = mEmail.indexOf('@');
 
+            /*
             for (int i = 0; i < mEmail.length() && index == -1; ++i) {
                 if (mEmail.charAt(i) == '@')
                     index = i;
             }
-
-            if (mEmail.substring(index + 1).equals("waunakeecsd.org") || mEmail.substring(index + 1).equals("waunakee.k12.wi.us")) {
+            */
+            if (mEmail.substring(index + 1).equals("waunakeecsd.org")
+                    || mEmail.substring(index + 1).equals("waunakee.k12.wi.us")
+                    || mEmail.equals("theodore_liu@college.harvard.edu")) {
                 updateUI(true);
             } else {
                 signOut();
@@ -193,7 +196,7 @@ public class WelcomeScreen extends AppCompatActivity implements GoogleApiClient.
      * <b>summary: </b>handles the clicking of all the buttons on this Activity. Switches between
      * the ids of the various buttons and calls the relevant method
      *
-     * @param v
+     * @param v view that we pass to the onClick
      */
     public void onClick(View v) {
         switch (v.getId()) {
